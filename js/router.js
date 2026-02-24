@@ -86,6 +86,11 @@ export class Router {
                 
                 // Initialize homepage components
                 this.initializeHomepage();
+                
+                // Render Lucide icons
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
             } else {
                 // Handle other pages (resources, etc.)
                 mainContent.innerHTML = `<div class="page"><div class="content-header"><h1 class="page-title">Page: ${page}</h1></div></div>`;
@@ -151,6 +156,11 @@ export class Router {
             
             // Expand mission if needed
             this.ensureMissionExpanded(mission);
+            
+            // Render Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
 
             this.currentPage = `module-${mission}-${module}`;
         } catch (error) {
@@ -224,6 +234,11 @@ export class Router {
     navigateToMission(mission) {
         // Navigate to first module of the mission
         this.showModule(mission, 1);
+    }
+
+    navigateToModule(mission, module) {
+        // Navigate to specific module
+        this.showModule(mission, module);
     }
 
     toggleMission(mission) {

@@ -18,7 +18,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--accent);

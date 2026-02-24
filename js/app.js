@@ -22,6 +22,11 @@ class AIPath {
         // Populate navigation
         this.populateNavigation();
         
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        
         // Update progress display
         this.updateProgressUI();
         
@@ -64,10 +69,10 @@ class AIPath {
                 <h3 class="nav-title">Navigation</h3>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active" data-route="home">🏠 Overview</a>
+                        <a href="#" class="nav-link active" data-route="home"><i data-lucide="home"></i> Overview</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-route="resources">📚 Resources</a>
+                        <a href="#" class="nav-link" data-route="resources"><i data-lucide="library"></i> Resources</a>
                     </li>
                 </ul>
             </nav>

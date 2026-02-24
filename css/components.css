@@ -30,7 +30,7 @@
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
-    font-family: 'Crimson Text', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .nav-list {
@@ -339,7 +339,7 @@
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 1.5rem;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .card-content {
@@ -415,7 +415,7 @@
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 2rem;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .diagram-container svg {
@@ -581,7 +581,7 @@
 }
 
 .prerequisites::before {
-    content: '📋';
+    content: '';
     position: absolute;
     top: -15px;
     left: 25px;
@@ -701,7 +701,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .recall-toggle:hover {
@@ -750,4 +750,76 @@
     justify-content: center;
     font-size: 0.8rem;
     font-weight: bold;
+}
+
+/* Hero CTA Buttons */
+.hero-actions {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    font-family: inherit;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button.primary {
+    background: var(--accent);
+    color: var(--text-dark);
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+}
+
+.cta-button.primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+.cta-button i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
 }

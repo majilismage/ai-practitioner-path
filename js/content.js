@@ -178,7 +178,7 @@ export class ContentLoader {
         return `
             <div class="recall-challenge">
                 <button class="recall-toggle" type="button" data-mission="${mission}">
-                    🧠 Recall Challenge: Mission ${mission-1} Review
+                    <i data-lucide="brain"></i> Recall Challenge: Mission ${mission-1} Review
                     <span>▼</span>
                 </button>
                 <div class="recall-content">

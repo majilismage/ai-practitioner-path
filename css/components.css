@@ -549,39 +549,45 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    margin: 0 0 2rem;
 }
 
 .nav-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 0.7rem 1.25rem;
-    color: var(--text-primary);
+    gap: 0.4rem;
+    background: transparent;
+    border: none;
+    padding: 0.6rem 0;
+    color: var(--text-secondary);
     cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    font-family: inherit;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
     white-space: nowrap;
 }
 
 .nav-button:hover {
-    border-color: var(--accent);
-    background: var(--bg-tertiary);
+    color: var(--accent);
+}
+
+.nav-button[data-direction="1"] {
+    color: var(--accent);
+}
+
+.nav-button[data-direction="1"]:hover {
+    color: var(--accent-light);
 }
 
 .nav-button:disabled {
-    opacity: 0.4;
+    opacity: 0.25;
     cursor: not-allowed;
 }
 
 .nav-button:disabled:hover {
-    border-color: var(--border);
-    background: var(--bg-secondary);
+    color: var(--text-secondary);
 }
 
 /* Prerequisites */
@@ -636,38 +642,70 @@
     font-size: 1.1rem;
 }
 
-/* Module Completion Checkbox */
+/* Module Footer — Completion + Navigation */
+.module-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
 .checkbox {
-    margin: 2.5rem 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: border-color 0.3s ease;
-}
-
-.checkbox:has(input:checked) {
-    border-color: var(--accent);
+    margin-bottom: 1.25rem;
+    cursor: pointer;
 }
 
 .checkbox input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--accent);
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-light);
+    border-radius: 6px;
+    background: var(--bg-secondary);
     cursor: pointer;
     flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.checkbox input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 11px;
+    border: solid var(--bg-primary);
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox input[type="checkbox"]:hover {
+    border-color: var(--accent);
 }
 
 .checkbox label {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     cursor: pointer;
     user-select: none;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.checkbox:has(input:checked) label {
+    color: var(--accent);
 }
 
 /* Resource Grid */
@@ -963,17 +1001,13 @@
         font-size: 1rem;
     }
     
-    /* Module navigation */
+    /* Module navigation — keep side-by-side on mobile */
     .module-nav {
-        flex-direction: row;
-        gap: 0.75rem;
+        gap: 0.5rem;
     }
     
     .nav-button {
-        flex: 1;
-        justify-content: center;
-        padding: 0.7rem 0.75rem;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     
     /* Resource grid */

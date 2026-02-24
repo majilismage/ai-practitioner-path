@@ -173,16 +173,18 @@ export class Router {
                     ${recallChallenge}
                     ${moduleContent}
                     
-                    <div class="checkbox">
-                        <input type="checkbox" id="complete-${mission}-${module}" 
-                               ${this.progressTracker.isModuleComplete(mission, module) ? 'checked' : ''}
-                               data-mission="${mission}" data-module="${module}">
-                        <label for="complete-${mission}-${module}">Mark this module as complete</label>
-                    </div>
+                    <div class="module-footer">
+                        <div class="checkbox">
+                            <input type="checkbox" id="complete-${mission}-${module}" 
+                                   ${this.progressTracker.isModuleComplete(mission, module) ? 'checked' : ''}
+                                   data-mission="${mission}" data-module="${module}">
+                            <label for="complete-${mission}-${module}">Mark this module as complete</label>
+                        </div>
 
-                    <div class="module-nav">
-                        <button class="nav-button" id="prev-module" data-direction="-1">← Previous</button>
-                        <button class="nav-button" id="next-module" data-direction="1">Next →</button>
+                        <div class="module-nav">
+                            <button class="nav-button" id="prev-module" data-direction="-1">Previous</button>
+                            <button class="nav-button" id="next-module" data-direction="1">Next</button>
+                        </div>
                     </div>
                 </div>
             `;

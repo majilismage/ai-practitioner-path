@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.7;
@@ -18,7 +18,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--accent);

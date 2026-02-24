@@ -14,12 +14,31 @@ export class Router {
             themeToggle.addEventListener('click', this.toggleTheme);
         }
 
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', this.openMobileMenu.bind(this));
+        }
+
+        // Sidebar close
+        const sidebarClose = document.getElementById('sidebar-close');
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', this.closeMobileMenu.bind(this));
+        }
+
+        // Mobile overlay
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', this.closeMobileMenu.bind(this));
+        }
+
         // Logo navigation
         const logo = document.querySelector('.logo');
         if (logo) {
             logo.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.showPage('home');
+                this.closeMobileMenu(); // Close mobile menu when navigating
             });
         }
 
@@ -65,8 +84,31 @@ export class Router {
                 } else {
                     this.showPage(route);
                 }
+                this.closeMobileMenu(); // Close mobile menu when navigating
             }
         });
+    }
+
+    openMobileMenu() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('mobile-overlay');
+        
+        if (sidebar) sidebar.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = 'hidden';
+    }
+
+    closeMobileMenu() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('mobile-overlay');
+        
+        if (sidebar) sidebar.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
     }
 
     async showPage(page) {

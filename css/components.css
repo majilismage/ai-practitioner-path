@@ -435,6 +435,20 @@
     margin: 2rem 0;
 }
 
+@media (max-width: 768px) {
+    .journey-map {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-map {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
 .journey-mission {
     background: var(--bg-tertiary);
     border: 2px solid var(--border);
@@ -822,4 +836,133 @@
     width: 20px;
     height: 20px;
     stroke-width: 2.5;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Sidebar mobile adjustments */
+    .sidebar {
+        border-radius: 0;
+    }
+    
+    /* Navigation adjustments */
+    .mission-toggle {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .mission-status {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .module-link {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .module-status {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* Journey mission adjustments */
+    .journey-mission {
+        padding: 1rem;
+    }
+    
+    .journey-mission-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .journey-mission-title {
+        font-size: 0.9rem;
+    }
+    
+    .journey-mission-modules {
+        font-size: 0.8rem;
+    }
+    
+    /* Hero CTA adjustments */
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Module navigation */
+    .module-nav {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Resource grid */
+    .resource-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .resource-category {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ultra-mobile adjustments */
+    .journey-mission {
+        padding: 0.75rem;
+    }
+    
+    .journey-mission-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .journey-mission-title {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .journey-mission-modules {
+        font-size: 0.75rem;
+    }
+    
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.9rem 1.25rem;
+    }
+    
+    .mission-toggle {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    .recall-toggle {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .recall-content > div {
+        padding: 0 1.25rem 1.25rem;
+    }
 }

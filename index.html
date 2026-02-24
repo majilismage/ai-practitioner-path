@@ -40,6 +40,9 @@
             <div class="header-content">
                 <a href="#" class="logo" data-route="home">The AI Practitioner's Path</a>
                 <div class="nav-controls">
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i data-lucide="menu"></i>
+                    </button>
                     <div class="progress-indicator">
                         <span id="progress-text">0% Complete</span>
                         <div class="progress-bar">
@@ -54,10 +57,16 @@
         </div>
     </header>
 
+    <!-- Mobile overlay for sidebar -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    
     <div class="container">
         <div class="main-layout">
             <!-- Sidebar -->
             <aside class="sidebar animate-in animate-in-delay-1" id="sidebar">
+                <button class="sidebar-close" id="sidebar-close">
+                    <i data-lucide="x"></i>
+                </button>
                 <!-- Navigation will be populated by JavaScript -->
             </aside>
 

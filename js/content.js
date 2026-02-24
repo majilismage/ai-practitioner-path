@@ -13,7 +13,7 @@ export class ContentLoader {
         }
 
         try {
-            const response = await fetch(`/content/mission-${mission}/module-${mission}-${module}.html`);
+            const response = await fetch(`content/mission-${mission}/module-${mission}-${module}.html`);
             
             if (!response.ok) {
                 throw new Error(`Failed to load module content: ${response.status}`);
@@ -30,7 +30,7 @@ export class ContentLoader {
 
     async loadHomeContent() {
         try {
-            const response = await fetch('/content/home.html');
+            const response = await fetch('content/home.html');
             if (response.ok) {
                 return await response.text();
             }
@@ -70,6 +70,16 @@ export class ContentLoader {
                         A 5-week intensive programme designed to transform how enterprise professionals 
                         use AI — from basic prompting to building production systems that multiply your impact.
                     </p>
+                    <div class="hero-actions">
+                        <button class="cta-button primary" onclick="router.navigateToMission(1)">
+                            <i data-lucide="play-circle"></i>
+                            Begin Your Journey
+                        </button>
+                        <button class="cta-button secondary" onclick="router.showPage('resources')">
+                            <i data-lucide="book-open"></i>
+                            Explore Resources
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="content-body">

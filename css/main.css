@@ -396,7 +396,6 @@ h1, h2, h3, h4, h5, h6 {
     
     /* Typography scaling */
     .hero-title {
-        font-size: 2.2rem;
         line-height: 1.2;
     }
     
@@ -462,7 +461,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero-title {
-        font-size: 1.8rem;
+        /* clamp() in components.css handles scaling */
     }
     
     .hero-subtitle {

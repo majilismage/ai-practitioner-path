@@ -320,8 +320,7 @@ export class Router {
         // Load autonomy spectrum diagram
         this.loadAutonomySpectrum();
         
-        // Initialize journey map interactivity
-        this.progressTracker.updateJourneyMap();
+        // Journey map progress is updated by the main app's updateProgressUI()
     }
 
     loadAutonomySpectrum() {
@@ -332,9 +331,9 @@ export class Router {
                 <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="spectrumGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.1" />
-                            <stop offset="50%" style="stop-color:var(--accent);stop-opacity:0.3" />
-                            <stop offset="100%" style="stop-color:var(--success);stop-opacity:0.1" />
+                            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.1" />
+                            <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="var(--success)" stop-opacity="0.1" />
                         </linearGradient>
                     </defs>
                     

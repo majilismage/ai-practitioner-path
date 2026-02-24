@@ -22,10 +22,8 @@ class AIPath {
         // Populate navigation
         this.populateNavigation();
         
-        // Update progress displays
-        this.progressTracker.updateModuleStatus();
-        this.progressTracker.updateProgressDisplay();
-        this.progressTracker.updateJourneyMap();
+        // Update progress display
+        this.updateProgressUI();
         
         // Load initial page
         await this.router.showPage('home');
@@ -35,6 +33,25 @@ class AIPath {
         
         // Setup error handling
         this.setupErrorHandling();
+    }
+
+    updateProgressUI() {
+        // Update header progress bar
+        const progress = this.progressTracker.getOverallProgress();
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+        if (progressFill) progressFill.style.width = `${progress}%`;
+        if (progressText) progressText.textContent = `${Math.round(progress)}% Complete`;
+
+        // Update mission status indicators in sidebar
+        for (let m = 1; m <= 5; m++) {
+            const statusEl = document.getElementById(`mission-${m}-status`);
+            if (statusEl && this.progressTracker.isMissionComplete(m)) {
+                statusEl.classList.remove('incomplete');
+                statusEl.classList.add('complete');
+                statusEl.textContent = '✓';
+            }
+        }
     }
 
     populateNavigation() {

@@ -435,7 +435,7 @@
     margin: 2rem 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .journey-map {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
@@ -839,10 +839,23 @@
 }
 
 /* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-    /* Sidebar mobile adjustments */
+@media (max-width: 968px) {
+    /* Sidebar mobile adjustments - must be here (after base .sidebar rule) to win cascade */
     .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 280px;
+        height: 100vh;
         border-radius: 0;
+        z-index: 100;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .sidebar.active {
+        left: 0;
     }
     
     /* Navigation adjustments */

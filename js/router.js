@@ -166,7 +166,7 @@ export class Router {
         const checkbox = document.getElementById(`complete-${mission}-${module}`);
         if (checkbox) {
             checkbox.addEventListener('change', (e) => {
-                this.progressTracker.handleModuleComplete(mission, module, e.target.checked);
+                this.progressTracker.setModuleCompletion(mission, module, e.target.checked);
             });
         }
 

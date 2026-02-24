@@ -1,0 +1,161 @@
+<div class="content-header">
+    <div class="page-subtitle">Module 4.3</div>
+    <h1 class="page-title">Data Integration and API Workflows</h1>
+    <p class="module-briefing">Connecting AI agents to enterprise systems and external data sources</p>
+</div>
+<div class="content-body">
+    <div class="card">
+        <h2 class="card-title">📋 Briefing</h2>
+        <div class="card-content">
+            <p>The power of AI agents multiplies exponentially when they can seamlessly integrate with your existing business systems, databases, and external APIs. This module focuses on building robust data pipelines and system integrations that enable agents to work with real enterprise data and workflows.</p>
+            
+            <p>We'll cover both technical implementation and business considerations for connecting AI agents to CRM systems, databases, cloud services, and third-party APIs while maintaining security and compliance standards.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🎯 Core</h2>
+        <div class="card-content">
+            <h3>Integration Architecture:</h3>
+
+            <h4>Common Integration Patterns:</h4>
+            <ul>
+                <li><strong>Direct API Access:</strong> Agent calls APIs directly with proper authentication</li>
+                <li><strong>Middleware Layer:</strong> Integration platform manages connections and data transformation</li>
+                <li><strong>Event-Driven:</strong> Agents respond to system events and triggers</li>
+                <li><strong>Batch Processing:</strong> Scheduled data synchronization and processing</li>
+            </ul>
+
+            <h4>Enterprise System Categories:</h4>
+            <ul>
+                <li><strong>CRM Systems:</strong> Salesforce, HubSpot, Microsoft Dynamics</li>
+                <li><strong>ERP Systems:</strong> SAP, Oracle, NetSuite</li>
+                <li><strong>Databases:</strong> SQL Server, MySQL, PostgreSQL, MongoDB</li>
+                <li><strong>Cloud Platforms:</strong> AWS, Azure, Google Cloud</li>
+                <li><strong>Communication:</strong> Slack, Teams, Email servers</li>
+                <li><strong>Document Management:</strong> SharePoint, Google Workspace, Box</li>
+            </ul>
+
+            <h3>Security and Compliance:</h3>
+
+            <h4>Authentication Methods:</h4>
+            <ul>
+                <li><strong>API Keys:</strong> Simple but limited access control</li>
+                <li><strong>OAuth 2.0:</strong> Secure, delegated access with scope control</li>
+                <li><strong>JWT Tokens:</strong> Stateless authentication with embedded permissions</li>
+                <li><strong>Service Accounts:</strong> Machine-to-machine authentication</li>
+            </ul>
+
+            <h4>Data Protection:</h4>
+            <ul>
+                <li><strong>Encryption:</strong> Data protection in transit and at rest</li>
+                <li><strong>Access Controls:</strong> Principle of least privilege</li>
+                <li><strong>Audit Logging:</strong> Complete record of data access and modifications</li>
+                <li><strong>Data Residency:</strong> Compliance with geographic restrictions</li>
+            </ul>
+
+            <h3>Implementation Approaches:</h3>
+
+            <h4>No-Code Integration:</h4>
+            <ul>
+                <li><strong>Zapier:</strong> 3000+ app integrations with visual workflow builder</li>
+                <li><strong>Microsoft Power Automate:</strong> Enterprise-grade automation with Office 365 integration</li>
+                <li><strong>IFTTT:</strong> Simple trigger-action automations</li>
+            </ul>
+
+            <h4>Low-Code Integration:</h4>
+            <ul>
+                <li><strong>Microsoft Power Platform:</strong> Custom connectors and data flows</li>
+                <li><strong>Salesforce Flow:</strong> Native CRM automation and integration</li>
+                <li><strong>Google Apps Script:</strong> JavaScript-based automation for Google Workspace</li>
+            </ul>
+
+            <h4>Custom Development:</h4>
+            <ul>
+                <li><strong>REST APIs:</strong> Standard HTTP-based integrations</li>
+                <li><strong>GraphQL:</strong> Efficient data fetching with precise queries</li>
+                <li><strong>Message Queues:</strong> Asynchronous, reliable data processing</li>
+                <li><strong>Webhooks:</strong> Real-time event notifications</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🛠️ Exercise</h2>
+        <div class="card-content">
+            <h3>Your Assignment: Build an Integrated Data Workflow</h3>
+
+            <h4>Step 1: System Mapping</h4>
+            <ul>
+                <li>Identify all systems that contain relevant business data</li>
+                <li>Map data flows between systems in your current workflow</li>
+                <li>Document authentication and access requirements</li>
+                <li>Assess integration capabilities and limitations</li>
+            </ul>
+
+            <h4>Step 2: Integration Design</h4>
+            <ul>
+                <li>Design a multi-system workflow that adds business value</li>
+                <li>Define data transformation requirements</li>
+                <li>Plan error handling and retry logic</li>
+                <li>Create security and compliance checklist</li>
+            </ul>
+
+            <h4>Step 3: Implementation</h4>
+            <p>Choose one of these integration scenarios:</p>
+
+            <h5>Scenario A: CRM-to-Reporting Pipeline</h5>
+            <ul>
+                <li>Extract customer data from CRM</li>
+                <li>Analyze performance metrics</li>
+                <li>Generate formatted reports</li>
+                <li>Distribute via email/Slack</li>
+            </ul>
+
+            <h5>Scenario B: Cross-Platform Data Synchronization</h5>
+            <ul>
+                <li>Monitor changes in primary system</li>
+                <li>Transform data for target format</li>
+                <li>Update secondary systems</li>
+                <li>Log and verify synchronization</li>
+            </ul>
+
+            <h4>Step 4: Testing and Validation</h4>
+            <ul>
+                <li>Test with production-like data volumes</li>
+                <li>Validate data accuracy and completeness</li>
+                <li>Verify security controls and access limitations</li>
+                <li>Document performance characteristics</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🤔 Debrief</h2>
+        <div class="card-content">
+            <h4>Integration Challenges:</h4>
+            <ul>
+                <li>Which integration points proved more complex than expected?</li>
+                <li>How did you handle data format differences between systems?</li>
+                <li>What security or compliance considerations required special attention?</li>
+                <li>Where did performance or reliability become concerns?</li>
+            </ul>
+
+            <h4>Business Value:</h4>
+            <ul>
+                <li>How much manual work did the integration eliminate?</li>
+                <li>What new insights became available through data combination?</li>
+                <li>Which stakeholders benefit most from automated data flows?</li>
+                <li>How could this approach scale to other business processes?</li>
+            </ul>
+
+            <h4>Technical Learning:</h4>
+            <ul>
+                <li>Which integration approach worked best for your use case?</li>
+                <li>What would you do differently in future integration projects?</li>
+                <li>How do you balance complexity with maintainability?</li>
+                <li>What additional tools or skills would improve your integration capabilities?</li>
+            </ul>
+        </div>
+    </div>
+</div>

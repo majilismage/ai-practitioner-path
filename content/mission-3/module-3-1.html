@@ -1,0 +1,273 @@
+<div class="content-header">
+    <div class="page-subtitle">Module 3.1</div>
+    <h1 class="page-title">Advanced Prompting Strategies</h1>
+    <p class="module-briefing">Beyond CRAFT — sophisticated techniques for complex tasks</p>
+</div>
+<div class="content-body">
+    <div class="card">
+        <h2 class="card-title">📋 Briefing</h2>
+        <div class="card-content">
+            <p>CRAFT prompting gets you 80% of the way there for most tasks. But when you're working on complex analysis, creative projects, or multi-step problems, you need more sophisticated techniques.</p>
+            
+            <p>Advanced prompting isn't about longer prompts — it's about strategic prompting. It's understanding how AI "thinks" and structuring your requests to leverage its strengths while compensating for its limitations.</p>
+            
+            <p>These techniques transform AI from a smart assistant to a thought partner capable of handling nuanced, multi-faceted challenges that require reasoning, creativity, and strategic thinking.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🎯 Core</h2>
+        <div class="card-content">
+            <h3>Chain-of-Thought Reasoning:</h3>
+
+            <h4>Basic Chain-of-Thought:</h4>
+            <p>"Before answering, think through this step by step."</p>
+            <ul>
+                <li>Forces AI to show its reasoning process</li>
+                <li>Reduces errors in logical reasoning</li>
+                <li>Helps you identify where reasoning breaks down</li>
+            </ul>
+
+            <h4>Structured Chain-of-Thought:</h4>
+            <p>"Use this thinking framework: 1) Define the problem, 2) Identify key variables, 3) Consider alternative approaches, 4) Evaluate trade-offs, 5) Recommend solution."</p>
+
+            <h4>Multi-Perspective Chain-of-Thought:</h4>
+            <p>"Analyze this from three perspectives: Customer, Business, and Technical. For each perspective, consider the benefits, risks, and requirements."</p>
+
+            <h3>Few-Shot Learning:</h3>
+
+            <h4>Pattern Examples:</h4>
+            <p>Instead of just describing what you want, show 2-3 examples:</p>
+            <blockquote>
+                <p>"Here are examples of the analysis style I want:</p>
+                <p><strong>Example 1:</strong> [Your example]<br>
+                <strong>Example 2:</strong> [Your example]</p>
+                <p>Now apply this same style to [new situation]."</p>
+            </blockquote>
+
+            <h4>Progressive Examples:</h4>
+            <p>Start simple and build complexity:</p>
+            <ol>
+                <li>Simple example with explanation</li>
+                <li>Moderate complexity example</li>
+                <li>Complex example (closest to your actual need)</li>
+            </ol>
+
+            <h3>Perspective Prompting:</h3>
+
+            <h4>Role-Based Analysis:</h4>
+            <p>"Analyze this decision from the perspective of: CEO (strategic impact), CFO (financial implications), Operations Manager (implementation challenges), and Customer (user experience)."</p>
+
+            <h4>Temporal Perspectives:</h4>
+            <p>"Consider the implications across three timeframes: Immediate (next 30 days), Short-term (3-6 months), Long-term (1-2 years)."</p>
+
+            <h4>Stakeholder Mapping:</h4>
+            <p>"For each stakeholder group, identify: What they care about, What they fear, What they need to be convinced, How this change affects them."</p>
+
+            <h3>Constraint-Based Prompting:</h3>
+
+            <h4>Resource Constraints:</h4>
+            <p>"Develop solutions that work within these constraints: $50k budget, 2-person team, 90-day timeline, no new technology purchases."</p>
+
+            <h4>Quality Constraints:</h4>
+            <p>"Your analysis must: Include at least 3 data sources, Address potential counterarguments, Provide specific success metrics, Include implementation timeline."</p>
+
+            <h3>Iterative Refinement:</h3>
+
+            <h4>The Build-and-Critique Method:</h4>
+            <ol>
+                <li><strong>Generate:</strong> "Create an initial solution to this problem."</li>
+                <li><strong>Critique:</strong> "Now identify the 3 biggest weaknesses in this solution."</li>
+                <li><strong>Refine:</strong> "Revise the solution to address these weaknesses."</li>
+                <li><strong>Validate:</strong> "Test this solution against these specific scenarios."</li>
+            </ol>
+
+            <h4>Red Team/Blue Team:</h4>
+            <ol>
+                <li><strong>Blue Team:</strong> "Develop the best case for this strategy."</li>
+                <li><strong>Red Team:</strong> "Now argue against this strategy — what could go wrong?"</li>
+                <li><strong>Synthesis:</strong> "Considering both perspectives, what's the most robust approach?"</li>
+            </ol>
+
+            <h3>Meta-Prompting Techniques:</h3>
+
+            <h4>Prompt Improvement:</h4>
+            <p>"Before answering my question, suggest how I could improve this prompt to get better results."</p>
+
+            <h4>Assumption Surfacing:</h4>
+            <p>"What assumptions are you making about [context/requirements/constraints] that I should validate or clarify?"</p>
+
+            <h4>Alternative Framing:</h4>
+            <p>"Reframe this problem in 3 different ways, then solve each framing."</p>
+
+            <h3>Complex Task Decomposition:</h3>
+
+            <h4>Hierarchical Breakdown:</h4>
+            <ol>
+                <li><strong>Macro Level:</strong> "What are the 3-5 major phases of this project?"</li>
+                <li><strong>Micro Level:</strong> "For each phase, what are the specific tasks and deliverables?"</li>
+                <li><strong>Dependency Mapping:</strong> "Which tasks must be completed before others can start?"</li>
+                <li><strong>Risk Analysis:</strong> "What could go wrong at each phase, and how would you mitigate it?"</li>
+            </ol>
+
+            <h4>Parallel Processing:</h4>
+            <p>For complex analysis:</p>
+            <ol>
+                <li><strong>Divide:</strong> "Split this analysis into [quantitative data, qualitative insights, strategic implications]."</li>
+                <li><strong>Analyze:</strong> "Complete each analysis independently."</li>
+                <li><strong>Integrate:</strong> "Synthesize these analyses into unified recommendations."</li>
+            </ol>
+
+            <h3>Quality Assurance Prompting:</h3>
+
+            <h4>Self-Validation:</h4>
+            <p>"After completing this analysis, check your work against these criteria: [logic consistency, evidence quality, completeness, practical feasibility]."</p>
+
+            <h4>Stress Testing:</h4>
+            <p>"Test your recommendations against these challenging scenarios: [best case, worst case, most likely case, black swan event]."</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🛠️ Exercise</h2>
+        <div class="card-content">
+            <h3>Your Assignment:</h3>
+
+            <h4>Choose a Complex Challenge:</h4>
+            <p>Select a real business problem you're facing that involves:</p>
+            <ul>
+                <li>Multiple stakeholders with different priorities</li>
+                <li>Several potential solutions with trade-offs</li>
+                <li>Significant uncertainty or risk</li>
+                <li>Resource constraints</li>
+            </ul>
+
+            <h4>Technique 1: Multi-Perspective Chain-of-Thought</h4>
+            <p><strong>Prompt Template:</strong></p>
+            <blockquote>
+                <p>"I need to analyze [your challenge]. Use this structured approach:</p>
+                
+                <p>1. <strong>Problem Definition:</strong> Clearly state the core problem and why it matters.</p>
+                
+                <p>2. <strong>Stakeholder Analysis:</strong> For each key stakeholder, identify:
+                   - Their primary concerns and success criteria
+                   - Their power/influence level
+                   - What they need to support a solution</p>
+                
+                <p>3. <strong>Solution Generation:</strong> Develop 3 distinctly different approaches, considering:
+                   - Resource requirements
+                   - Implementation difficulty
+                   - Risk profile
+                   - Timeline</p>
+                
+                <p>4. <strong>Trade-off Analysis:</strong> For each solution, analyze:
+                   - What you gain
+                   - What you sacrifice
+                   - What could go wrong
+                   - What success looks like</p>
+                
+                <p>5. <strong>Recommendation:</strong> Based on this analysis, recommend the best path forward with specific next steps."</p>
+            </blockquote>
+
+            <h4>Technique 2: Red Team/Blue Team Analysis</h4>
+            <p>Take your preferred solution from Technique 1 and run it through adversarial analysis:</p>
+
+            <h5>Blue Team Prompt:</h5>
+            <blockquote>
+                <p>"Act as a strong advocate for [your preferred solution]. Build the most compelling case possible, addressing:
+                - Why this is the best approach
+                - Evidence supporting this choice
+                - How it addresses stakeholder concerns
+                - Why alternatives are inferior"</p>
+            </blockquote>
+
+            <h5>Red Team Prompt:</h5>
+            <blockquote>
+                <p>"Now act as a skeptical critic of [same solution]. Identify:
+                - The strongest arguments against this approach
+                - Potential failure modes and risks
+                - Hidden costs or complications
+                - Why an alternative might be better"</p>
+            </blockquote>
+
+            <h5>Synthesis Prompt:</h5>
+            <blockquote>
+                <p>"Considering both the advocacy and criticism above, develop a more robust version of the solution that:
+                - Addresses the strongest criticisms
+                - Maintains the key benefits
+                - Includes specific risk mitigation strategies
+                - Has clear success metrics and checkpoints"</p>
+            </blockquote>
+
+            <h4>Technique 3: Few-Shot Learning for Implementation</h4>
+            <p>Create detailed implementation guidance using examples:</p>
+
+            <blockquote>
+                <p>"I need to communicate this decision to stakeholders. Here are examples of how I've successfully communicated difficult decisions before:</p>
+                
+                <p><strong>Example 1:</strong> [Describe a previous situation, the communication approach, and why it worked]</p>
+                
+                <p><strong>Example 2:</strong> [Another example with different stakeholder dynamics]</p>
+                
+                <p>Based on these patterns, develop a communication strategy for this current situation, including:
+                - Key messages for each stakeholder group
+                - Optimal timing and channels
+                - How to address likely objections
+                - Follow-up plan to maintain buy-in"</p>
+            </blockquote>
+
+            <h4>Compare and Document:</h4>
+            <p>After completing all three techniques:</p>
+            <ul>
+                <li>How did the final solution differ from your initial instinct?</li>
+                <li>Which technique surfaced the most valuable insights?</li>
+                <li>What risks or considerations did you miss in your original thinking?</li>
+                <li>How confident are you in the refined solution vs. your original approach?</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🤔 Debrief</h2>
+        <div class="card-content">
+            <h4>Cognitive Enhancement:</h4>
+            <ul>
+                <li>Which advanced prompting techniques felt most valuable for your thinking process?</li>
+                <li>Where did AI's structured analysis reveal gaps in your original approach?</li>
+                <li>How did forcing explicit reasoning change the quality of the solution?</li>
+            </ul>
+
+            <h4>Practical Application:</h4>
+            <ul>
+                <li>Which of these techniques would be most useful in your regular work?</li>
+                <li>Where would the extra time investment in sophisticated prompting pay off?</li>
+                <li>What types of decisions warrant this level of analytical rigor?</li>
+            </ul>
+
+            <h4>AI Partnership Evolution:</h4>
+            <ul>
+                <li>How has your relationship with AI changed from basic prompting to advanced techniques?</li>
+                <li>Where do you still prefer pure human thinking vs. AI-assisted analysis?</li>
+                <li>What's the optimal balance between AI structure and human intuition?</li>
+            </ul>
+
+            <h4>Quality and Confidence:</h4>
+            <ul>
+                <li>How much more confident are you in solutions developed through rigorous AI analysis?</li>
+                <li>Which stakeholders would be more likely to support thoroughly-analyzed recommendations?</li>
+                <li>What's the risk of over-analyzing vs. under-analyzing with these tools?</li>
+            </ul>
+
+            <h4>The Meta-Skill:</h4>
+            <p>Advanced prompting isn't really about AI — it's about thinking more systematically. These techniques force you to be explicit about assumptions, consider multiple perspectives, and stress-test ideas. AI just makes this level of analytical rigor practical for everyday decisions.</p>
+
+            <h4>Scaling Questions:</h4>
+            <ul>
+                <li>Which types of business decisions in your organization would benefit from systematic AI analysis?</li>
+                <li>How could you share these analytical approaches with your team?</li>
+                <li>What's the ROI of spending more time on upfront analysis vs. faster implementation?</li>
+                <li>How do you balance thoroughness with agility in a fast-moving business environment?</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,2494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Practitioner's Path</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1a1b23;
+            --bg-secondary: #24252e;
+            --bg-tertiary: #2e2f3a;
+            --bg-accent: #faf9f6;
+            --text-primary: #f8f7f4;
+            --text-secondary: #c5c3bb;
+            --text-muted: #8b897f;
+            --text-dark: #2a2b32;
+            --accent: #d4af37;
+            --accent-hover: #b8941a;
+            --accent-light: #e8c547;
+            --success: #4ade80;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --border: #3a3b47;
+            --border-light: #4a4b57;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #faf9f6;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f4f0;
+            --bg-accent: #1a1b23;
+            --text-primary: #2a2b32;
+            --text-secondary: #4a4b57;
+            --text-muted: #8b897f;
+            --text-dark: #f8f7f4;
+            --accent: #b8941a;
+            --accent-hover: #d4af37;
+            --border: #e5e4df;
+            --border-light: #d1cfca;
+            --shadow-sm: 0 2px 8px rgba(212, 175, 55, 0.08);
+            --shadow-md: 0 4px 16px rgba(212, 175, 55, 0.12);
+            --shadow-lg: 0 8px 32px rgba(212, 175, 55, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        /* Staggered animations for page load */
+        .animate-in {
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .animate-in-delay-1 { animation-delay: 0.1s; }
+        .animate-in-delay-2 { animation-delay: 0.2s; }
+        .animate-in-delay-3 { animation-delay: 0.3s; }
+        .animate-in-delay-4 { animation-delay: 0.4s; }
+        .animate-in-delay-5 { animation-delay: 0.5s; }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.1); }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(26, 27, 35, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .header {
+            background: rgba(250, 249, 246, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.75rem 1.25rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .theme-toggle:hover::before {
+            left: 100%;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            width: 120px;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 4px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+            margin: 2.5rem 0;
+            align-items: start;
+        }
+
+        /* Enhanced Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            transform: translateX(8px);
+        }
+
+        .nav-link:hover::before {
+            transform: scaleY(1);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: var(--text-dark);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-link.active::before {
+            transform: scaleY(1);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mission Navigation */
+        .mission-toggle {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: inherit;
+        }
+
+        .mission-toggle:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            transform: translateX(8px);
+        }
+
+        .mission-toggle.active {
+            color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+
+        .mission-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .mission-status.incomplete {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .mission-status.complete {
+            background: var(--success);
+            color: var(--text-dark);
+            animation: pulseGlow 2s infinite;
+        }
+
+        .mission-arrow {
+            margin-left: auto;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-toggle.active .mission-arrow {
+            transform: rotate(90deg);
+        }
+
+        .mission-modules {
+            padding-left: 2.5rem;
+            margin-top: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mission-modules.expanded {
+            max-height: 500px;
+        }
+
+        .module-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.25rem;
+            border-radius: var(--radius);
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .module-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            transform: translateX(4px);
+        }
+
+        .module-link.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .module-status {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .module-status.complete {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        /* Enhanced Content Area */
+        .content {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(8px);
+            position: relative;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        .content-header {
+            padding: 3rem;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .content-body {
+            padding: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Cards with Glassmorphism */
+        .card {
+            background: rgba(36, 37, 46, 0.8);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .card {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 1.5rem 0;
+            color: var(--text-primary);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        /* Homepage Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* Enlarged SVG Diagrams */
+        .diagram-container {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .diagram-container svg {
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Journey Map - Special Styling */
+        .journey-map {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .journey-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .journey-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .journey-step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .journey-step-icon {
+            background: var(--bg-tertiary);
+            border: 3px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .journey-step-icon.current {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--text-dark);
+            animation: pulseGlow 2s infinite;
+        }
+
+        .journey-step-icon.complete {
+            background: var(--success);
+            border-color: var(--success);
+            color: var(--text-dark);
+        }
+
+        .journey-step-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-step-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 150px;
+        }
+
+        /* Journey connecting line */
+        .journey-steps::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 15%;
+            right: 15%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+            z-index: -1;
+        }
+
+        /* Enhanced Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+        }
+
+        /* Enhanced Recall Challenge */
+        .recall-challenge {
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            margin: 2.5rem 0;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .recall-toggle {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .recall-toggle:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .recall-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .recall-content.expanded {
+            max-height: 500px;
+        }
+
+        .recall-content > div {
+            padding: 0 2rem 2rem;
+        }
+
+        .recall-questions {
+            list-style: none;
+            counter-reset: question-counter;
+        }
+
+        .recall-questions li {
+            counter-increment: question-counter;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .recall-questions li::before {
+            content: counter(question-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-layout {
+                grid-template-columns: 280px 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .sidebar {
+                position: static;
+                order: 1;
+            }
+
+            .content {
+                order: 2;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .content-header,
+            .content-body {
+                padding: 2rem;
+            }
+
+            .sidebar {
+                padding: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in-out 0.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0 0 1.5rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-light);
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul, .section-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .section-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .section-content em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* Prerequisites styling */
+        .prerequisites {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .prerequisites::before {
+            content: '📋';
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: var(--bg-primary);
+            padding: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .prerequisites-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .prerequisites-list {
+            list-style: none;
+        }
+
+        .prerequisites-list li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .prerequisites-list li:last-child {
+            border-bottom: none;
+        }
+
+        .prerequisites-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Checkbox styling */
+        .checkbox {
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .checkbox label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Resource grid styling */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-category {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        .resource-category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .resource-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+    </style>
+</head>
+<body class="loading">
+    <div class="container">
+        <!-- Header -->
+        <header class="header animate-in">
+            <div class="header-content">
+                <a href="#" class="logo" onclick="showPage('home')">The AI Practitioner's Path</a>
+                <div class="nav-controls">
+                    <div class="progress-indicator">
+                        <span id="progress-text">0% Complete</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <span id="theme-text">🌙 Dark Mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar animate-in animate-in-delay-1">
+                <!-- Quick Navigation -->
+                <nav class="nav-section">
+                    <h3 class="nav-title">Navigation</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" onclick="showPage('home')">🏠 Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="showPage('resources')">📚 Resources</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mission Navigation -->
+                <nav class="nav-section">
+                    <h3 class="nav-title">Course Structure</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <button class="mission-toggle" onclick="toggleMission(1)" id="mission-1-toggle">
+                                <div class="mission-status incomplete" id="mission-1-status">1</div>
+                                Mission 1: Foundation
+                                <span class="mission-arrow" id="mission-1-arrow">▶</span>
+                            </button>
+                            <div class="mission-modules" id="mission-1-modules">
+                                <a href="#" class="module-link" onclick="showModule(1, 1)">
+                                    <div class="module-status" id="module-1-1-status"></div>
+                                    The CRAFT of Prompting
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(1, 2)">
+                                    <div class="module-status" id="module-1-2-status"></div>
+                                    AI in Your Office Suite
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(1, 3)">
+                                    <div class="module-status" id="module-1-3-status"></div>
+                                    Building Your First AI Workflow
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="mission-toggle" onclick="toggleMission(2)" id="mission-2-toggle">
+                                <div class="mission-status incomplete" id="mission-2-status">2</div>
+                                Mission 2: Mental Models
+                                <span class="mission-arrow" id="mission-2-arrow">▶</span>
+                            </button>
+                            <div class="mission-modules" id="mission-2-modules">
+                                <a href="#" class="module-link" onclick="showModule(2, 1)">
+                                    <div class="module-status" id="module-2-1-status"></div>
+                                    AI Capability Map
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(2, 2)">
+                                    <div class="module-status" id="module-2-2-status"></div>
+                                    What's Hype vs. Real
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(2, 3)">
+                                    <div class="module-status" id="module-2-3-status"></div>
+                                    Vibe Coding Your First App
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="mission-toggle" onclick="toggleMission(3)" id="mission-3-toggle">
+                                <div class="mission-status incomplete" id="mission-3-status">3</div>
+                                Mission 3: Professional Application
+                                <span class="mission-arrow" id="mission-3-arrow">▶</span>
+                            </button>
+                            <div class="mission-modules" id="mission-3-modules">
+                                <a href="#" class="module-link" onclick="showModule(3, 1)">
+                                    <div class="module-status" id="module-3-1-status"></div>
+                                    Claude Code Setup
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(3, 2)">
+                                    <div class="module-status" id="module-3-2-status"></div>
+                                    MCP in Action
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(3, 3)">
+                                    <div class="module-status" id="module-3-3-status"></div>
+                                    Cowork Demo and Setup
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="mission-toggle" onclick="toggleMission(4)" id="mission-4-toggle">
+                                <div class="mission-status incomplete" id="mission-4-status">4</div>
+                                Mission 4: Agent Systems
+                                <span class="mission-arrow" id="mission-4-arrow">▶</span>
+                            </button>
+                            <div class="mission-modules" id="mission-4-modules">
+                                <a href="#" class="module-link" onclick="showModule(4, 1)">
+                                    <div class="module-status" id="module-4-1-status"></div>
+                                    OpenClaw Introduction
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(4, 2)">
+                                    <div class="module-status" id="module-4-2-status"></div>
+                                    Your First Skill
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(4, 3)">
+                                    <div class="module-status" id="module-4-3-status"></div>
+                                    Agent Architecture
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(4, 4)">
+                                    <div class="module-status" id="module-4-4-status"></div>
+                                    Multi-Agent Coordination
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="mission-toggle" onclick="toggleMission(5)" id="mission-5-toggle">
+                                <div class="mission-status incomplete" id="mission-5-status">5</div>
+                                Mission 5: Production Systems
+                                <span class="mission-arrow" id="mission-5-arrow">▶</span>
+                            </button>
+                            <div class="mission-modules" id="mission-5-modules">
+                                <a href="#" class="module-link" onclick="showModule(5, 1)">
+                                    <div class="module-status" id="module-5-1-status"></div>
+                                    Guardrails and Safety
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(5, 2)">
+                                    <div class="module-status" id="module-5-2-status"></div>
+                                    Testing and Validation
+                                </a>
+                                <a href="#" class="module-link" onclick="showModule(5, 3)">
+                                    <div class="module-status" id="module-5-3-status"></div>
+                                    Scaling and Maintenance
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="content animate-in animate-in-delay-2">
+                <!-- Homepage -->
+                <div id="page-home" class="page">
+                    <div class="content-header">
+                        <div class="hero-section">
+                            <h1 class="hero-title">The AI Practitioner's Path</h1>
+                            <p class="hero-subtitle">
+                                A 5-week intensive programme designed to transform how enterprise professionals 
+                                use AI — from basic prompting to building production systems that multiply your impact.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <div class="card animate-in animate-in-delay-3">
+                            <h3 class="card-title">Current State of AI Autonomy</h3>
+                            <div class="diagram-container">
+                                <h4 class="diagram-title">The Autonomy Spectrum: Where We Are & Where We're Going</h4>
+                                <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Background gradient -->
+                                    <defs>
+                                        <linearGradient id="spectrumGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.1" />
+                                            <stop offset="50%" style="stop-color:var(--accent);stop-opacity:0.3" />
+                                            <stop offset="100%" style="stop-color:var(--success);stop-opacity:0.1" />
+                                        </linearGradient>
+                                    </defs>
+                                    
+                                    <rect x="50" y="80" width="700" height="40" fill="url(#spectrumGrad)" rx="20"/>
+                                    
+                                    <!-- Spectrum labels -->
+                                    <text x="100" y="75" text-anchor="middle" fill="var(--text-primary)" font-size="14" font-weight="bold">Manual</text>
+                                    <text x="300" y="75" text-anchor="middle" fill="var(--text-primary)" font-size="14" font-weight="bold">Assisted</text>
+                                    <text x="500" y="75" text-anchor="middle" fill="var(--text-primary)" font-size="14" font-weight="bold">Augmented</text>
+                                    <text x="700" y="75" text-anchor="middle" fill="var(--text-primary)" font-size="14" font-weight="bold">Autonomous</text>
+                                    
+                                    <!-- Current position marker -->
+                                    <circle cx="350" cy="100" r="8" fill="var(--accent)" stroke="var(--bg-primary)" stroke-width="3"/>
+                                    <text x="350" y="140" text-anchor="middle" fill="var(--accent)" font-size="12" font-weight="bold">You are here</text>
+                                    
+                                    <!-- Target position -->
+                                    <circle cx="550" cy="100" r="8" fill="var(--success)" stroke="var(--bg-primary)" stroke-width="3"/>
+                                    <text x="550" y="140" text-anchor="middle" fill="var(--success)" font-size="12" font-weight="bold">Course goal</text>
+                                    
+                                    <!-- Examples -->
+                                    <text x="100" y="160" text-anchor="middle" fill="var(--text-secondary)" font-size="10">ChatGPT prompts</text>
+                                    <text x="300" y="160" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Copilot in Office</text>
+                                    <text x="500" y="160" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Custom workflows</text>
+                                    <text x="700" y="160" text-anchor="middle" fill="var(--text-secondary)" font-size="10">AI agents</text>
+                                </svg>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-top: 1.5rem;">
+                                Most professionals plateau at "Assisted" — using AI reactively for one-off tasks. 
+                                This course moves you to "Augmented" and beyond, where AI systems work proactively 
+                                to multiply your effectiveness.
+                            </p>
+                        </div>
+
+                        <div class="card animate-in animate-in-delay-4">
+                            <h3 class="card-title">The Claude Ecosystem</h3>
+                            <div class="diagram-container">
+                                <h4 class="diagram-title">Understanding Claude's Capabilities Across Contexts</h4>
+                                <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Center circle - Claude Core -->
+                                    <circle cx="300" cy="200" r="60" fill="var(--accent)" stroke="var(--bg-primary)" stroke-width="3"/>
+                                    <text x="300" y="205" text-anchor="middle" fill="var(--text-dark)" font-size="16" font-weight="bold">Claude</text>
+                                    
+                                    <!-- Chat interface -->
+                                    <rect x="100" y="50" width="80" height="50" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="2" rx="10"/>
+                                    <text x="140" y="70" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="bold">Chat</text>
+                                    <text x="140" y="85" text-anchor="middle" fill="var(--text-secondary)" font-size="10">General use</text>
+                                    <line x1="180" y1="75" x2="250" y2="150" stroke="var(--accent)" stroke-width="2"/>
+                                    
+                                    <!-- Claude Code -->
+                                    <rect x="420" y="50" width="80" height="50" fill="var(--bg-secondary)" stroke="var(--success)" stroke-width="2" rx="10"/>
+                                    <text x="460" y="70" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="bold">Code</text>
+                                    <text x="460" y="85" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Development</text>
+                                    <line x1="420" y1="75" x2="350" y2="150" stroke="var(--success)" stroke-width="2"/>
+                                    
+                                    <!-- Projects -->
+                                    <rect x="50" y="250" width="80" height="50" fill="var(--bg-secondary)" stroke="var(--warning)" stroke-width="2" rx="10"/>
+                                    <text x="90" y="270" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="bold">Projects</text>
+                                    <text x="90" y="285" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Workspace</text>
+                                    <line x1="130" y1="275" x2="250" y2="230" stroke="var(--warning)" stroke-width="2"/>
+                                    
+                                    <!-- Cowork -->
+                                    <rect x="470" y="250" width="80" height="50" fill="var(--bg-secondary)" stroke="var(--danger)" stroke-width="2" rx="10"/>
+                                    <text x="510" y="270" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="bold">Cowork</text>
+                                    <text x="510" y="285" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Collaboration</text>
+                                    <line x1="470" y1="275" x2="350" y2="230" stroke="var(--danger)" stroke-width="2"/>
+                                    
+                                    <!-- MCP at bottom -->
+                                    <rect x="250" y="320" width="100" height="50" fill="var(--bg-tertiary)" stroke="var(--accent-light)" stroke-width="2" rx="10"/>
+                                    <text x="300" y="340" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="bold">MCP Layer</text>
+                                    <text x="300" y="355" text-anchor="middle" fill="var(--text-secondary)" font-size="10">Connectors</text>
+                                    <line x1="300" y1="320" x2="300" y2="260" stroke="var(--accent-light)" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="card animate-in animate-in-delay-5">
+                            <h3 class="card-title">MCP: Universal AI Connector</h3>
+                            <div class="diagram-container">
+                                <h4 class="diagram-title">Model Context Protocol - Connecting AI to Everything</h4>
+                                <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Central MCP hub -->
+                                    <rect x="250" y="75" width="100" height="50" fill="var(--accent)" stroke="var(--bg-primary)" stroke-width="3" rx="10"/>
+                                    <text x="300" y="95" text-anchor="middle" fill="var(--text-dark)" font-size="14" font-weight="bold">MCP</text>
+                                    <text x="300" y="110" text-anchor="middle" fill="var(--text-dark)" font-size="10">Protocol</text>
+                                    
+                                    <!-- Left side - Data sources -->
+                                    <rect x="50" y="25" width="80" height="30" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="1" rx="5"/>
+                                    <text x="90" y="45" text-anchor="middle" fill="var(--text-primary)" font-size="11">Databases</text>
+                                    <line x1="130" y1="40" x2="250" y2="90" stroke="var(--accent)" stroke-width="2"/>
+                                    
+                                    <rect x="50" y="85" width="80" height="30" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="1" rx="5"/>
+                                    <text x="90" y="105" text-anchor="middle" fill="var(--text-primary)" font-size="11">APIs</text>
+                                    <line x1="130" y1="100" x2="250" y2="100" stroke="var(--accent)" stroke-width="2"/>
+                                    
+                                    <rect x="50" y="145" width="80" height="30" fill="var(--bg-secondary)" stroke="var(--accent)" stroke-width="1" rx="5"/>
+                                    <text x="90" y="165" text-anchor="middle" fill="var(--text-primary)" font-size="11">File Systems</text>
+                                    <line x1="130" y1="160" x2="250" y2="110" stroke="var(--accent)" stroke-width="2"/>
+                                    
+                                    <!-- Right side - Applications -->
+                                    <rect x="470" y="25" width="80" height="30" fill="var(--bg-secondary)" stroke="var(--success)" stroke-width="1" rx="5"/>
+                                    <text x="510" y="45" text-anchor="middle" fill="var(--text-primary)" font-size="11">Slack</text>
+                                    <line x1="470" y1="40" x2="350" y2="90" stroke="var(--success)" stroke-width="2"/>
+                                    
+                                    <rect x="470" y="85" width="80" height="30" fill="var(--bg-secondary)" stroke="var(--success)" stroke-width="1" rx="5"/>
+                                    <text x="510" y="105" text-anchor="middle" fill="var(--text-primary)" font-size="11">GitHub</text>
+                                    <line x1="470" y1="100" x2="350" y2="100" stroke="var(--success)" stroke-width="2"/>
+                                    
+                                    <rect x="470" y="145" width="80" height="30" fill="var(--bg-secondary)" stroke="var(--success)" stroke-width="1" rx="5"/>
+                                    <text x="510" y="165" text-anchor="middle" fill="var(--text-primary)" font-size="11">Google Drive</text>
+                                    <line x1="470" y1="160" x2="350" y2="110" stroke="var(--success)" stroke-width="2"/>
+                                    
+                                    <!-- Title -->
+                                    <text x="300" y="20" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="bold">Universal AI Connector</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="journey-map animate-in animate-in-delay-5">
+                            <h3 class="card-title">Your Learning Journey</h3>
+                            <div class="journey-steps">
+                                <div class="journey-step">
+                                    <div class="journey-step-icon current" id="journey-1">1</div>
+                                    <div class="journey-step-title">Foundation</div>
+                                    <div class="journey-step-desc">CRAFT prompting, Office integration, workflows</div>
+                                </div>
+                                <div class="journey-step">
+                                    <div class="journey-step-icon" id="journey-2">2</div>
+                                    <div class="journey-step-title">Mental Models</div>
+                                    <div class="journey-step-desc">AI capabilities, limitations, vibe coding</div>
+                                </div>
+                                <div class="journey-step">
+                                    <div class="journey-step-icon" id="journey-3">3</div>
+                                    <div class="journey-step-title">Professional</div>
+                                    <div class="journey-step-desc">Claude Code, MCP, Cowork collaboration</div>
+                                </div>
+                                <div class="journey-step">
+                                    <div class="journey-step-icon" id="journey-4">4</div>
+                                    <div class="journey-step-title">Agent Systems</div>
+                                    <div class="journey-step-desc">OpenClaw, Skills, multi-agent architecture</div>
+                                </div>
+                                <div class="journey-step">
+                                    <div class="journey-step-icon" id="journey-5">5</div>
+                                    <div class="journey-step-title">Production</div>
+                                    <div class="journey-step-desc">Guardrails, testing, scaling systems</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">What You'll Achieve</h3>
+                            <p style="color: var(--text-secondary);">
+                                By the end of this programme, you'll move from using AI as a fancy chatbot to building 
+                                AI-powered systems that multiply your effectiveness. You'll understand not just what to 
+                                build, but when and how to build it — with the confidence that comes from hands-on experience.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Weekly Coaching Sessions</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                                Each week includes a 30-minute coaching session with Jake. Here's what to prepare:
+                            </p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                                <div style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+                                    <strong style="color: var(--accent);">Week 1:</strong> Kickoff, context, first exercise together
+                                </div>
+                                <div style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+                                    <strong style="color: var(--accent);">Week 2:</strong> Review vibe-coded app, discuss mental models
+                                </div>
+                                <div style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+                                    <strong style="color: var(--accent);">Week 3:</strong> Cowork live demo, troubleshoot setup
+                                </div>
+                                <div style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+                                    <strong style="color: var(--accent);">Week 4:</strong> Review Skill definition, discuss agent architecture
+                                </div>
+                                <div style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+                                    <strong style="color: var(--accent);">Week 5:</strong> Final review, next steps
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary" onclick="showModule(1, 1)">Start Mission 1 →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module Template (will be populated by JavaScript) -->
+                <div id="module-content" class="page hidden">
+                    <!-- Content will be injected here -->
+                </div>
+
+                <!-- Resources Page -->
+                <div id="page-resources" class="page hidden">
+                    <div class="content-header">
+                        <h1 class="page-title">Resource Library</h1>
+                        <p class="page-subtitle">All links and references organized in one place</p>
+                    </div>
+                    <div class="content-body">
+                        <div class="resource-grid">
+                            <div class="resource-category">
+                                <h3 class="resource-category-title">Anthropic Free Courses</h3>
+                                <ul class="resource-list">
+                                    <li><a href="https://anthropic.skilljar.com/claude-101" target="_blank">Claude 101</a></li>
+                                    <li><a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations" target="_blank">AI Fluency Framework</a></li>
+                                    <li><a href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank">Claude Code in Action</a></li>
+                                    <li><a href="https://anthropic.skilljar.com/introduction-to-agent-skills" target="_blank">Introduction to Agent Skills</a></li>
+                                    <li><a href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_blank">Introduction to MCP</a></li>
+                                    <li><a href="https://anthropic.skilljar.com/ai-fluency-for-students" target="_blank">AI Fluency for Students</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="resource-category">
+                                <h3 class="resource-category-title">Key Articles & Resources</h3>
+                                <ul class="resource-list">
+                                    <li><a href="https://nav.al/ai" target="_blank">Naval: "A Motorcycle for the Mind"</a></li>
+                                    <li><a href="https://www.technologyreview.com/2025/04/16/1115135/what-is-vibe-coding-exactly/" target="_blank">MIT Tech Review: Vibe Coding</a></li>
+                                    <li><a href="https://support.claude.com/en/articles/13345190-getting-started-with-cowork" target="_blank">Cowork Getting Started</a></li>
+                                    <li><a href="https://www.wired.com/story/anthropic-claude-cowork-agent/" target="_blank">WIRED on Cowork</a></li>
+                                    <li><a href="https://modelcontextprotocol.io/" target="_blank">What is MCP</a></li>
+                                    <li><a href="https://openclaw.ai" target="_blank">OpenClaw</a></li>
+                                    <li><a href="https://docs.openclaw.ai" target="_blank">OpenClaw Docs</a></li>
+                                    <li><a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw GitHub</a></li>
+                                    <li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw" target="_blank">DigitalOcean on OpenClaw</a></li>
+                                    <li><a href="https://claude.com/product/claude-code" target="_blank">Claude Code Product Page</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="resource-category">
+                                <h3 class="resource-category-title">Practical Examples</h3>
+                                <ul class="resource-list">
+                                    <li><a href="https://github.com/zarazhangrui/frontend-slides" target="_blank">Frontend Slides (Vibe-coded presentations)</a></li>
+                                    <li><a href="https://github.com/blader/humanizer" target="_blank">Humanizer Skill</a></li>
+                                    <li><a href="https://www.thevibemarketer.com/guides/what-is-vibe-marketing" target="_blank">Vibe Marketing Guide</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="resource-category">
+                                <h3 class="resource-category-title">Expert Insights (Twitter)</h3>
+                                <ul class="resource-list">
+                                    <li><a href="https://x.com/gregisenberg/status/2024838731757224095" target="_blank">Greg Isenberg on OpenClaw</a></li>
+                                    <li><a href="https://x.com/naval/status/2024700227111047581" target="_blank">Naval on AI</a></li>
+                                    <li><a href="https://x.com/nrmehta/status/2024884022510498145" target="_blank">Nick Mehta on Claude Code</a></li>
+                                    <li><a href="https://x.com/rubenhassid/status/2024873152698802412" target="_blank">Ruben Hassid: Claude 101</a></li>
+                                    <li><a href="https://x.com/bibryam/status/2024812311479820690" target="_blank">Bilgin Ibryam on Skills</a></li>
+                                    <li><a href="https://x.com/doodlestein/status/2025645582782480827" target="_blank">Jeffrey Emanuel: Agent Stress Test</a></li>
+                                    <li><a href="https://x.com/levelsio/status/2025962414085210559" target="_blank">Levelsio: Claude Code</a></li>
+                                    <li><a href="https://x.com/zarazhangrui/status/2025798415154921961" target="_blank">Zara Zhang: Frontend Slides</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let currentPage = 'home';
+        let progress = JSON.parse(localStorage.getItem('ai-practitioner-progress') || '{}');
+
+        // Module content data structure
+        const modules = {
+            1: {
+                1: {
+                    title: "The CRAFT of Prompting",
+                    subtitle: "Module 1.1",
+                    briefing: "Why most people plateau at \"good enough\" AI results",
+                    briefingContent: `Most people use AI like they use Google — they ask a question and hope for the best. But there's a massive difference between getting an answer and getting the *right* answer for *your* context.
+
+The problem isn't the AI. It's that we're still thinking like we're talking to a search engine instead of collaborating with an intelligent system. When you give Claude or ChatGPT a vague prompt, you get vague results. When you give it context, role clarity, and specific instructions, it becomes exponentially more useful.
+
+Think about it: if you hired a new team member, would you just say "make this better" and walk away? Of course not. You'd explain the context, clarify their role, specify what success looks like, and give them examples. AI works the same way.`,
+                    coreContent: `**The CRAFT Framework:**
+
+**Context:** What's the situation? What background does the AI need to give you relevant advice?
+- Bad: "Write me an email"
+- Good: "I need to follow up with a B2B client who went quiet after our demo call 2 weeks ago. They seemed interested but haven't responded to my last two emails."
+
+**Role:** Who should the AI be? What perspective should it take?
+- Bad: Generic AI assistant
+- Good: "Act as a senior sales director with 10 years of B2B experience"
+
+**Ask:** What exactly do you want? Be specific about the task.
+- Bad: "Help me with this"
+- Good: "Draft a re-engagement email that acknowledges their silence without being pushy, references a specific point from our demo, and includes a soft call-to-action"
+
+**Format:** How do you want the output structured?
+- Bad: No guidance on structure
+- Good: "Provide 3 subject line options, then the email body (150 words max), then 2 alternative follow-up approaches"
+
+**Tone:** What's the right voice and style?
+- Bad: Whatever the AI defaults to
+- Good: "Professional but conversational, confident without being aggressive, with a touch of curiosity about their decision timeline"
+
+**Chain-of-Thought:** Get the AI to show its work
+Instead of jumping straight to an answer, ask it to think through the problem step by step: "Before writing the email, first analyze what might have caused the silence, then consider what would motivate them to re-engage."
+
+**Few-Shot Examples:** Show, don't just tell
+Give the AI 1-2 examples of what good looks like in your context. This is especially powerful for tone and style.`,
+                    exerciseContent: `**Your Assignment:**
+
+1. **Find a real document** from your work: a proposal draft, client email, meeting summary, or presentation outline that you're not 100% satisfied with.
+
+2. **First attempt:** Ask AI to improve it with a basic prompt like "make this better" or "rewrite this to be more professional."
+
+3. **CRAFT attempt:** Use the full framework:
+   - **Context:** Explain the business situation, audience, and goals
+   - **Role:** Ask the AI to act as a specific expert (sales director, consultant, analyst, etc.)
+   - **Ask:** Be specific about what you want improved (clarity, persuasiveness, structure, etc.)
+   - **Format:** Specify the output structure (sections, word count, bullet points, etc.)
+   - **Tone:** Define the voice and style appropriate for your audience
+
+4. **Compare side-by-side:** Put both versions in a document and note the differences.
+
+5. **Chain-of-thought bonus:** For the CRAFT version, start with: "Before rewriting this, first analyze what the current version does well and what could be improved, considering the audience and context."
+
+**Example CRAFT Prompt:**
+"Context: I'm an account director following up on a proposal sent to a Fortune 500 procurement team 3 weeks ago. They requested detailed pricing but haven't responded since.
+
+Role: Act as a senior B2B sales professional with expertise in enterprise procurement cycles.
+
+Ask: Rewrite this follow-up email to be more engaging and likely to get a response, while addressing potential concerns about our pricing.
+
+Format: Subject line + email body (under 200 words) + specific next step request.
+
+Tone: Professional, confident, consultative, with subtle urgency but not pushy."`,
+                    debriefContent: `After completing this exercise, reflect on these questions:
+
+**Quality:** How much better was the CRAFT version? Look at:
+- Clarity of message
+- Relevance to your audience
+- Persuasiveness/impact
+- Professional polish
+
+**Speed:** Did the structured approach save time overall?
+- Less back-and-forth with the AI
+- Fewer iterations needed
+- More targeted feedback
+
+**Thinking Process:** This is often the biggest shift. Notice:
+- How did forcing yourself to define Context and Role change your understanding of the task?
+- What did you realize about your audience that you hadn't considered before?
+- How did specifying Format and Tone make the output more useful?
+
+**The Meta-Lesson:** CRAFT isn't just about better AI outputs — it's about better thinking. When you're forced to articulate context, role, and desired outcomes, you often discover gaps in your own strategy.
+
+Most people will notice that the CRAFT version isn't just better, it's *faster* to get right. You spend 2 more minutes upfront to save 20 minutes of revision.`
+                },
+                2: {
+                    title: "AI in Your Office Suite",
+                    subtitle: "Module 1.2",
+                    briefing: "Microsoft Copilot is already in your tools — here's what it actually does well (and where it doesn't)",
+                    briefingContent: `You're probably already paying for Microsoft Copilot and barely using it. Or you tried it once, got mediocre results, and wrote it off. That's because most people approach Copilot like a magic wand instead of a power tool.
+
+The truth: Copilot isn't trying to replace you. It's trying to eliminate the tedious parts of your job so you can focus on the strategic work. But it's only as good as your ability to direct it.
+
+Here's what Copilot does exceptionally well: data manipulation, first drafts, format conversions, and pattern recognition. Here's what it struggles with: nuanced judgment, complex analysis that requires domain expertise, and understanding your company's specific context.
+
+The key is knowing which tasks to delegate and how to structure your requests.`,
+                    coreContent: `**Excel Copilot — Your Data Analyst:**
+
+*What it's great at:*
+- Creating pivot tables and charts from raw data
+- Writing complex formulas (XLOOKUP, nested IFs, array formulas)
+- Cleaning and organizing messy datasets
+- Generating insights from numerical data
+
+*How to use it effectively:*
+- "Create a pivot table showing quarterly sales by region and product category"
+- "Write a formula to calculate the 90-day moving average for column D"
+- "Analyze this customer data and identify the top 5 patterns that correlate with churn"
+
+*Where it falls short:*
+- Understanding what metrics matter for your business
+- Knowing when data looks wrong or suspicious
+- Contextualizing insights within your industry
+
+**PowerPoint Copilot — Your Designer:**
+
+*What it's great at:*
+- Converting Word documents or PDFs into slide decks
+- Redesigning slides for better visual hierarchy
+- Creating presenter notes and talking points
+- Generating multiple layout options
+
+*How to use it effectively:*
+- "Turn this 10-page report into a 5-slide executive summary deck"
+- "Redesign these slides to be more visually engaging for a C-level audience"
+- "Create presenter notes for each slide that include relevant data points"
+
+*Where it falls short:*
+- Understanding your brand guidelines
+- Knowing what resonates with your specific audience
+- Creating compelling narratives from disconnected information
+
+**Word Copilot — Your Editor:**
+
+*What it's great at:*
+- Summarizing long documents
+- Rewriting content for different audiences
+- Creating outlines and structures
+- Generating multiple versions of the same content
+
+*How to use it effectively:*
+- "Summarize this 50-page contract focusing on deliverables and deadlines"
+- "Rewrite this technical proposal for a non-technical audience"
+- "Create 3 different versions of this email: formal, casual, and urgent"
+
+*Where it falls short:*
+- Capturing your unique voice and style
+- Understanding complex business relationships
+- Making strategic content decisions`,
+                    exerciseContent: `**Your Assignment:**
+
+Choose one of these real work scenarios:
+
+**Option A: Data Analysis & Deck Creation**
+1. Take a dataset you've been meaning to analyze (sales data, survey results, performance metrics, etc.)
+2. Upload it to Excel and use Copilot to:
+   - Clean and organize the data
+   - Create 2-3 pivot tables showing different insights
+   - Generate charts that highlight key trends
+   - Ask: "What are the 3 most important insights from this data?"
+3. Use PowerPoint Copilot to:
+   - Create a 5-slide deck from the Excel analysis
+   - Add presenter notes
+   - Redesign for visual impact
+
+**Option B: Report to Deck Conversion**
+1. Take a recent report, proposal, or lengthy document
+2. Use Word Copilot to:
+   - Create an executive summary
+   - Extract key data points and recommendations
+3. Use PowerPoint Copilot to:
+   - Convert the summary into a 5-slide presentation
+   - Generate 3 different design approaches
+   - Create talking points for each slide
+
+**Specific Copilot Prompts to Use:**
+
+*Excel:*
+- "Analyze this data and create visualizations that would be compelling for executives"
+- "What questions should I be asking about this dataset?"
+- "Create a summary table with the key metrics and trends"
+
+*PowerPoint:*
+- "Create a presentation from this content that tells a compelling story"
+- "Redesign these slides for maximum visual impact in a boardroom setting"
+- "Generate presenter notes that include supporting data and potential objections"
+
+**Document Everything:** Note what worked well, what needed manual intervention, and how much time it saved vs. doing it manually.`,
+                    debriefContent: `Analyze your experience across three dimensions:
+
+**Time Savings:**
+- What tasks that normally take you 2+ hours did Copilot handle in minutes?
+- Which parts of the process became faster vs. slower?
+- Where did you spend time correcting or refining Copilot's output?
+
+**Quality Gains:**
+- What did Copilot create that was better than your usual first draft?
+- What design or formatting improvements did you not think of?
+- Which insights or patterns did it identify that you missed?
+
+**Intervention Points:**
+- Where did you need to provide more context or direction?
+- What outputs required significant manual editing?
+- Which business judgments could only come from you?
+
+**The Pattern:** Most people discover that Copilot is exceptional at the "heavy lifting" — data manipulation, first drafts, format conversions — but still requires human oversight for context, strategy, and final polish.
+
+**Strategic Takeaway:** The goal isn't to eliminate your involvement, it's to eliminate the tedious parts so you can focus on the parts that require judgment, creativity, and business understanding.
+
+**Next Level Question:** Based on this experience, what are 3 recurring tasks in your workweek that you could systematically delegate to Copilot?`
+                },
+                3: {
+                    title: "Beyond Templates — Building Your First AI Workflow",
+                    subtitle: "Module 1.3",
+                    briefing: "The difference between using a tool and building a system",
+                    briefingContent: `Most people use AI reactively — they have a problem, they ask AI for help, they move on. But the real power comes from building proactive systems that work for you continuously.
+
+The difference between a tool and a system is repeatability and improvement. A tool helps you once. A system helps you every time, and gets better with use.
+
+Think about the recurring tasks in your work: weekly reports, client check-ins, competitive analysis, proposal reviews. Right now, you probably approach each one from scratch. But what if you had an AI system that remembered your preferences, your context, your standards, and your processes?
+
+That's what Claude Projects, custom instructions, and reusable prompt templates enable. You're not just using AI — you're training it to work the way you work.`,
+                    coreContent: `**Claude Projects — Your AI Workspace:**
+
+A Claude Project is like having a dedicated AI assistant for a specific area of your work. It remembers context across conversations, maintains custom instructions, and can reference uploaded documents.
+
+*When to create a Project:*
+- You have recurring work in a specific domain
+- You need to reference the same documents repeatedly
+- You want consistent output style and format
+- You're collaborating with others who need the same context
+
+*Example Projects:*
+- "Weekly Client Reports" (with templates, client data, and reporting standards)
+- "Competitive Intelligence" (with competitor profiles, analysis frameworks, and update processes)
+- "Proposal Development" (with your company info, past successful proposals, and evaluation criteria)
+
+**Custom Instructions — Your AI's Operating Manual:**
+
+Custom instructions tell your AI assistant how to behave across all interactions. Think of it as an employee handbook.
+
+*Effective custom instructions include:*
+- Your role and industry context
+- Your communication preferences (formal vs casual, length, structure)
+- Your company's specific terminology and standards
+- Common tasks and how you prefer them handled
+
+*Example Custom Instructions:*
+"I'm a senior account director in B2B SaaS, focused on enterprise clients. When I ask for help with emails, default to professional but warm tone, keep under 200 words, and always include a specific next step. When analyzing data, focus on business impact and recommendations rather than just describing trends. I prefer structured outputs with clear headers and bullet points."
+
+**System Prompts — The Foundation:**
+
+A system prompt is like a detailed brief you give at the start of every AI conversation. It sets context, role, and expectations before you ask for specific help.
+
+*Components of a good system prompt:*
+- Background context about your situation
+- The AI's role and expertise level
+- Your goals and success criteria
+- Format and style preferences
+- Any constraints or considerations
+
+**Reusable Prompt Templates:**
+
+Instead of writing prompts from scratch each time, create templates for your recurring needs:
+
+*Weekly Report Template:*
+"Context: [This week's activities and focus areas]
+Role: Act as my business analyst
+Task: Create a structured weekly report covering [standard sections]
+Format: Executive summary + detailed sections + next week priorities
+Tone: Professional, data-driven, action-oriented"
+
+*Client Email Template:*
+"Context: [Client situation and history]
+Role: Act as a senior account manager
+Task: Draft a [type] email that [specific goal]
+Format: Subject line + email body (under 200 words) + clear next step
+Tone: [Appropriate for client relationship]"`,
+                    exerciseContent: `**Your Assignment:**
+
+**Step 1: Identify Your Recurring Task**
+Choose something you do weekly or monthly that involves:
+- Similar process each time
+- Multiple pieces of information to analyze
+- Consistent output format needed
+
+Examples: Weekly client reviews, competitive analysis updates, monthly performance reports, proposal evaluations
+
+**Step 2: Create Your Claude Project**
+1. Go to Claude.ai and create a new Project
+2. Name it specifically (e.g., "Q1 Enterprise Account Reviews")
+3. Upload relevant documents:
+   - Templates you currently use
+   - Historical reports for reference
+   - Client data or background materials
+   - Company standards or guidelines
+
+**Step 3: Write Your Project Instructions**
+Include:
+- Your role and the project's purpose
+- The types of tasks you'll be doing
+- Your preferred output format and style
+- Specific requirements or standards
+- How you want the AI to handle different scenarios
+
+**Example Project Instructions:**
+"This project is for conducting weekly strategic account reviews. I'm a senior account director managing 15 enterprise B2B clients in the SaaS space. 
+
+When I upload client data or ask for analysis, provide:
+1. Executive summary (2-3 sentences)
+2. Key metrics and trends (with context)
+3. Risk assessment (high/medium/low with reasoning)
+4. Recommended actions (specific, time-bound)
+5. Questions to investigate further
+
+Format as structured markdown with clear headers. Be data-driven but include strategic implications. Flag urgent issues at the top."
+
+**Step 4: Test with Real Data**
+Upload a real dataset or information and ask your AI assistant to:
+- Analyze it according to your project instructions
+- Generate your standard deliverable format
+- Identify patterns or insights you might have missed
+
+**Step 5: Refine and Iterate**
+Based on the output:
+- Adjust your project instructions
+- Add more specific examples
+- Upload additional reference materials
+- Create follow-up prompt templates`,
+                    debriefContent: `Look at what you've built and think about it as a scalable system:
+
+**Documentation Gaps:**
+- What context did you assume the AI would know?
+- What steps in your process did you skip because they're "obvious" to you?
+- What quality checks or validation steps should be built in?
+
+**Standard Operating Procedure Elements:**
+- Clear triggers for when to use this system
+- Step-by-step process from input to final deliverable
+- Quality standards and what good output looks like
+- Error handling (what to do when AI output isn't quite right)
+- Escalation criteria (when human judgment is required)
+
+**Scalability Considerations:**
+- Could someone else in your company use this system?
+- What company-specific context would they need?
+- How would you train them to refine and improve the prompts?
+
+**The Bigger Picture:**
+You've just built your first AI workflow. The principles you learned here — clear instructions, structured processes, iterative improvement — are the foundation for everything we'll build in later missions.
+
+Most importantly, you've shifted from *using* AI to *directing* AI. That's the difference between a tool and a system.`
+                }
+            },
+            2: {
+                1: {
+                    title: "AI Capability Map",
+                    subtitle: "Module 2.1",
+                    briefing: "Understanding what AI can and can't do (and why it matters for strategy)",
+                    briefingContent: `The biggest mistake professionals make with AI isn't technical — it's strategic. They either expect too much (AI can't read minds or understand unspoken context) or too little (AI can actually handle complex reasoning and creative tasks).
+
+This isn't about memorizing model specifications. It's about developing intuition for where AI adds value vs. where human expertise is irreplaceable. When you understand these boundaries, you can design workflows that amplify your strengths instead of fighting AI's limitations.
+
+The goal is to build a mental map: Given this type of task, in this context, with this level of risk, should you use AI, avoid it, or use it in a specific way?`,
+                    coreContent: `**Where AI Excels:**
+
+**Pattern Recognition & Analysis:**
+- Identifying trends in large datasets
+- Spotting anomalies or outliers
+- Comparing similar items (contracts, resumes, proposals)
+- Extracting structured data from unstructured text
+
+**Content Generation & Transformation:**
+- First drafts of written content
+- Reformatting information for different audiences
+- Summarizing complex documents
+- Brainstorming ideas and alternatives
+
+**Systematic Processing:**
+- Applying consistent criteria across many items
+- Following detailed processes or checklists
+- Quality checking against established standards
+- Routine calculations and analysis
+
+**Where AI Struggles:**
+
+**Contextual Nuance:**
+- Understanding unspoken organizational politics
+- Interpreting cultural or industry-specific subtleties
+- Reading between the lines in conversations
+- Knowing when to break rules or make exceptions
+
+**Real-World Integration:**
+- Understanding the current state of dynamic situations
+- Accessing private or proprietary information
+- Making decisions with incomplete information
+- Coordinating with other people or systems
+
+**High-Stakes Judgment:**
+- Legal or regulatory compliance decisions
+- Strategic business decisions with major consequences
+- Personnel decisions (hiring, firing, promotions)
+- Anything where being wrong creates significant liability
+
+**The Strategic Framework:**
+
+**High Confidence Use Cases:**
+- Task is well-defined and repeatable
+- Success criteria are clear and measurable
+- Mistakes are easily caught and corrected
+- You can provide sufficient context
+
+**Human-AI Collaboration:**
+- AI generates options, you choose
+- AI does first pass, you refine
+- AI handles volume, you handle exceptions
+- AI provides analysis, you make decisions
+
+**Human-Only Territory:**
+- Ambiguous situations requiring judgment
+- High-stakes decisions with major consequences
+- Tasks requiring real-world context you can't easily explain
+- Situations where being wrong is costly
+
+**Model Selection Guide:**
+
+**Claude (Anthropic):**
+- Best for: Complex reasoning, long documents, creative tasks
+- Strengths: Nuanced understanding, helpfulness, safety
+- Use when: Quality and accuracy matter more than speed
+
+**GPT-4 (OpenAI):**
+- Best for: General tasks, creative writing, coding
+- Strengths: Versatility, speed, broad capabilities
+- Use when: You need quick, general-purpose assistance
+
+**Specialized Models:**
+- Use when the specific domain (code, images, etc.) matches your need
+- Examples: GitHub Copilot for coding, Midjourney for images
+
+**Claude Code:**
+- Best for: Development work, data analysis, technical tasks
+- Strengths: Tool integration, file system access, execution environment
+- Use when: You need AI that can actually run and test code`,
+                    exerciseContent: `**Your Assignment:**
+
+**Step 1: Audit Your Current AI Use**
+For the next week, track every time you use AI (ChatGPT, Copilot, Claude, etc.):
+- What was the task?
+- How satisfied were you with the result? (1-5 scale)
+- How much did you need to edit or refine the output?
+- Would you use AI for this task again?
+
+**Step 2: Identify Missed Opportunities**
+Look at your typical work week and identify 3-5 tasks that you currently do manually that might be good AI candidates:
+- Are they repetitive or systematic?
+- Do they involve pattern recognition or content transformation?
+- Would mistakes be easy to catch?
+- Can you provide clear instructions and context?
+
+**Step 3: Run Capability Tests**
+Pick 2-3 tasks from your "missed opportunities" list and test them with AI:
+
+*Test Structure:*
+1. Define the task clearly
+2. Provide context and examples
+3. Specify your quality criteria
+4. Run the test with your preferred AI model
+5. Evaluate the output against your criteria
+
+*Example Test:*
+Task: "Review this vendor proposal and identify potential risks"
+Context: "We're considering this software vendor for a 3-year contract. Focus on technical, financial, and operational risks."
+Quality Criteria: "Should identify at least 3 specific risks with severity assessment and mitigation suggestions."
+
+**Step 4: Map Your Personal AI Strategy**
+Based on your tests and audit, create three lists:
+
+*Green Light (High Confidence):*
+Tasks where AI consistently delivers good results with minimal editing
+
+*Yellow Light (Collaboration):*
+Tasks where AI provides a useful starting point but requires significant human input
+
+*Red Light (Human Only):*
+Tasks where AI either fails or where the risk of mistakes is too high
+
+**Document your findings in a simple matrix:**
+| Task Type | AI Role | Human Role | When to Use | When to Avoid |`,
+                    debriefContent: `**Pattern Recognition:**
+Looking at your results, what patterns do you notice?
+
+- Which types of tasks consistently worked well with AI?
+- Where did AI struggle in ways you didn't expect?
+- What surprised you about AI's capabilities (positively or negatively)?
+
+**Strategic Insights:**
+- How much time could you realistically save by systematically using AI for your "Green Light" tasks?
+- What would you do with that time if AI handled more routine work?
+- Which "Yellow Light" tasks could become "Green Light" with better prompting or different AI models?
+
+**Boundary Awareness:**
+- Where did you discover important limitations you hadn't considered?
+- What tasks did you initially think were AI-suitable but turned out not to be?
+- How has this changed your mental model of where AI fits in your work?
+
+**The Meta-Learning:**
+The goal isn't to maximize AI usage — it's to optimize the human-AI combination. The best AI practitioners aren't those who use AI for everything, but those who know exactly when and how to use it for maximum impact.
+
+**Next Level Questions:**
+- How could you systematize your "Green Light" tasks to save even more time?
+- What would change if AI capabilities improved significantly in the next 6 months?
+- How do you stay updated on AI capability improvements without getting distracted by hype?`
+                }
+            }
+            // Additional module content would continue here for all 18 modules...
+        };
+
+        // Theme toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeText = document.getElementById('theme-text');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                themeText.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeText.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+                document.getElementById('theme-text').innerHTML = '☀️ Light Mode';
+            }
+        }
+
+        // Progress tracking
+        function markModuleComplete(mission, module) {
+            if (!progress[mission]) progress[mission] = {};
+            progress[mission][module] = Date.now();
+            saveProgress();
+            updateProgressDisplay();
+            updateModuleStatus();
+            updateJourneyMap();
+        }
+
+        function isModuleComplete(mission, module) {
+            return progress[mission] && progress[mission][module];
+        }
+
+        function isMissionComplete(mission) {
+            const moduleCount = mission === 4 ? 4 : 3;
+            for (let i = 1; i <= moduleCount; i++) {
+                if (!isModuleComplete(mission, i)) return false;
+            }
+            return true;
+        }
+
+        function saveProgress() {
+            localStorage.setItem('ai-practitioner-progress', JSON.stringify(progress));
+        }
+
+        function updateProgressDisplay() {
+            const totalModules = 18; // 3+3+3+4+3
+            let completedModules = 0;
+            
+            for (let mission = 1; mission <= 5; mission++) {
+                const moduleCount = mission === 4 ? 4 : 3;
+                for (let module = 1; module <= moduleCount; module++) {
+                    if (isModuleComplete(mission, module)) completedModules++;
+                }
+            }
+
+            const percentage = Math.round((completedModules / totalModules) * 100);
+            document.getElementById('progress-text').textContent = `${percentage}% Complete`;
+            document.getElementById('progress-fill').style.width = `${percentage}%`;
+        }
+
+        function updateModuleStatus() {
+            for (let mission = 1; mission <= 5; mission++) {
+                const missionStatus = document.getElementById(`mission-${mission}-status`);
+                if (isMissionComplete(mission)) {
+                    missionStatus.className = 'mission-status complete';
+                    missionStatus.innerHTML = '✓';
+                } else {
+                    missionStatus.className = 'mission-status incomplete';
+                    missionStatus.textContent = mission;
+                }
+
+                const moduleCount = mission === 4 ? 4 : 3;
+                for (let module = 1; module <= moduleCount; module++) {
+                    const moduleStatus = document.getElementById(`module-${mission}-${module}-status`);
+                    if (moduleStatus) {
+                        moduleStatus.className = isModuleComplete(mission, module) ? 
+                            'module-status complete' : 'module-status';
+                    }
+                }
+            }
+        }
+
+        function updateJourneyMap() {
+            for (let i = 1; i <= 5; i++) {
+                const journeyIcon = document.getElementById(`journey-${i}`);
+                if (isMissionComplete(i)) {
+                    journeyIcon.className = 'journey-step-icon complete';
+                    journeyIcon.innerHTML = '✓';
+                } else {
+                    // Find first incomplete mission
+                    let firstIncomplete = null;
+                    for (let j = 1; j <= 5; j++) {
+                        if (!isMissionComplete(j)) {
+                            firstIncomplete = j;
+                            break;
+                        }
+                    }
+                    
+                    if (i === firstIncomplete) {
+                        journeyIcon.className = 'journey-step-icon current';
+                        journeyIcon.textContent = i;
+                    } else {
+                        journeyIcon.className = 'journey-step-icon';
+                        journeyIcon.textContent = i;
+                    }
+                }
+            }
+        }
+
+        // Navigation
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            
+            // Show target page
+            document.getElementById(`page-${page}`).classList.remove('hidden');
+            
+            // Update nav
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelector(`[onclick="showPage('${page}')"]`).classList.add('active');
+            
+            currentPage = page;
+        }
+
+        function showModule(mission, module) {
+            const moduleData = modules[mission] && modules[mission][module];
+            if (!moduleData) {
+                // For modules not yet implemented, show a placeholder
+                const placeholderContent = `
+                    <div class="content-header">
+                        <div class="badge">Module ${mission}.${module}</div>
+                        <h1 class="page-title">Module Coming Soon</h1>
+                        <p class="page-subtitle">This module is currently being developed. Please check back later.</p>
+                    </div>
+                    <div class="content-body">
+                        <div class="card">
+                            <h3 class="card-title">Module in Development</h3>
+                            <p style="color: var(--text-secondary);">
+                                This module will be available soon. In the meantime, you can explore the other available modules 
+                                or check out the resource library for additional learning materials.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 16px; margin-top: 32px;">
+                            <button class="btn btn-secondary" onclick="navigateModule(${mission}, ${module}, -1)">← Previous</button>
+                            <button class="btn btn-primary" onclick="navigateModule(${mission}, ${module}, 1)">Next →</button>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('module-content').innerHTML = placeholderContent;
+                document.getElementById('module-content').classList.remove('hidden');
+                
+                // Update nav
+                document.querySelectorAll('.nav-link, .module-link').forEach(link => link.classList.remove('active'));
+                const moduleLink = document.querySelector(`[onclick="showModule(${mission}, ${module})"]`);
+                if (moduleLink) moduleLink.classList.add('active');
+                
+                // Expand mission if needed
+                const missionModules = document.getElementById(`mission-${mission}-modules`);
+                if (!missionModules.classList.contains('expanded')) {
+                    toggleMission(mission);
+                }
+
+                currentPage = `module-${mission}-${module}`;
+                return;
+            }
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+            
+            // Generate recall challenge if needed
+            let recallChallenge = '';
+            if (mission > 1) {
+                recallChallenge = generateRecallChallenge(mission);
+            }
+
+            // Generate module content
+            const moduleContent = `
+                <div class="content-header">
+                    <div class="badge">${moduleData.subtitle}</div>
+                    <h1 class="page-title">${moduleData.title}</h1>
+                    <p class="page-subtitle">${moduleData.briefing}</p>
+                </div>
+                <div class="content-body">
+                    ${recallChallenge}
+                    
+                    <div class="section">
+                        <h2 class="section-title">📋 Briefing</h2>
+                        <div class="section-content">
+                            ${moduleData.briefingContent.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">🎯 Core</h2>
+                        <div class="section-content">
+                            ${formatContent(moduleData.coreContent)}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">🛠️ Exercise</h2>
+                        <div class="section-content">
+                            ${formatContent(moduleData.exerciseContent)}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">🤔 Debrief</h2>
+                        <div class="section-content">
+                            ${formatContent(moduleData.debriefContent)}
+                        </div>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="complete-${mission}-${module}" 
+                               ${isModuleComplete(mission, module) ? 'checked' : ''}
+                               onchange="handleModuleComplete(${mission}, ${module}, this.checked)">
+                        <label for="complete-${mission}-${module}">Mark this module as complete</label>
+                    </div>
+
+                    <div style="display: flex; gap: 16px; margin-top: 32px;">
+                        <button class="btn btn-secondary" onclick="navigateModule(${mission}, ${module}, -1)">← Previous</button>
+                        <button class="btn btn-primary" onclick="navigateModule(${mission}, ${module}, 1)">Next →</button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('module-content').innerHTML = moduleContent;
+            document.getElementById('module-content').classList.remove('hidden');
+            
+            // Update nav
+            document.querySelectorAll('.nav-link, .module-link').forEach(link => link.classList.remove('active'));
+            const moduleLink = document.querySelector(`[onclick="showModule(${mission}, ${module})"]`);
+            if (moduleLink) moduleLink.classList.add('active');
+            
+            // Expand mission if needed
+            const missionModules = document.getElementById(`mission-${mission}-modules`);
+            if (!missionModules.classList.contains('expanded')) {
+                toggleMission(mission);
+            }
+
+            currentPage = `module-${mission}-${module}`;
+        }
+
+        function formatContent(content) {
+            return content
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+                .split('\n\n')
+                .map(paragraph => {
+                    if (paragraph.trim().startsWith('- ') || paragraph.trim().startsWith('* ')) {
+                        const items = paragraph.split('\n').filter(line => line.trim());
+                        return '<ul>' + items.map(item => `<li>${item.replace(/^[\-\*]\s*/, '')}</li>`).join('') + '</ul>';
+                    }
+                    return `<p>${paragraph}</p>`;
+                })
+                .join('');
+        }
+
+        function generateRecallChallenge(mission) {
+            const challenges = {
+                2: [
+                    "Explain the CRAFT framework in one sentence without looking it up.",
+                    "Name two specific things Microsoft Copilot does exceptionally well.",
+                    "What's the difference between using AI as a tool vs. building an AI system?"
+                ],
+                3: [
+                    "Which AI model would you choose for creative brainstorming and why?",
+                    "What is a context window and why does it matter?",
+                    "Describe one key insight from your vibe coding exercise."
+                ],
+                4: [
+                    "What's the difference between Claude Code and regular Claude chat?",
+                    "Name the three MCP primitives and give an example of each.",
+                    "When would you use Cowork instead of regular Claude?"
+                ],
+                5: [
+                    "What's the difference between a Skill and an Agent? Explain in one sentence each.",
+                    "Name three things OpenClaw can do that a Claude chat subscription cannot.",
+                    "Describe Jeffrey Emanuel's agent stress test technique in your own words.",
+                    "What are guardrails in the context of AI agents, and why do they matter?"
+                ]
+            };
+
+            const questions = challenges[mission] || [];
+            if (questions.length === 0) return '';
+
+            return `
+                <div class="recall-challenge">
+                    <button class="recall-toggle" onclick="toggleRecall(this)">
+                        🧠 Recall Challenge: Mission ${mission-1} Review
+                        <span>▼</span>
+                    </button>
+                    <div class="recall-content">
+                        <div>
+                            <p style="color: var(--text-secondary); margin-bottom: 16px;">
+                                Before diving into new material, test your retention from the previous mission:
+                            </p>
+                            <ol class="recall-questions">
+                                ${questions.map(q => `<li>${q}</li>`).join('')}
+                            </ol>
+                            <p style="color: var(--text-muted); font-size: 14px; margin-top: 16px;">
+                                Don't look back at the previous modules. Write down your answers, then check them later.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleRecall(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('expanded');
+                arrow.textContent = '▲';
+            }
+        }
+
+        function handleModuleComplete(mission, module, completed) {
+            if (completed) {
+                markModuleComplete(mission, module);
+            } else {
+                // Remove completion
+                if (progress[mission]) {
+                    delete progress[mission][module];
+                }
+                saveProgress();
+                updateProgressDisplay();
+                updateModuleStatus();
+                updateJourneyMap();
+            }
+        }
+
+        function navigateModule(currentMission, currentModule, direction) {
+            // Calculate next module
+            let nextMission = currentMission;
+            let nextModule = currentModule + direction;
+
+            // Handle module boundaries
+            const moduleCount = currentMission === 4 ? 4 : 3;
+            if (nextModule > moduleCount) {
+                nextMission++;
+                nextModule = 1;
+            } else if (nextModule < 1) {
+                nextMission--;
+                nextModule = nextMission === 4 ? 4 : 3;
+            }
+
+            // Check bounds
+            if (nextMission < 1 || nextMission > 5) return;
+
+            // Navigate
+            showModule(nextMission, nextModule);
+        }
+
+        function toggleMission(mission) {
+            const modules = document.getElementById(`mission-${mission}-modules`);
+            const arrow = document.getElementById(`mission-${mission}-arrow`);
+            const toggle = document.getElementById(`mission-${mission}-toggle`);
+
+            if (modules.classList.contains('expanded')) {
+                modules.classList.remove('expanded');
+                arrow.textContent = '▶';
+                toggle.classList.remove('active');
+            } else {
+                // Close other missions
+                for (let i = 1; i <= 5; i++) {
+                    if (i !== mission) {
+                        const otherModules = document.getElementById(`mission-${i}-modules`);
+                        const otherArrow = document.getElementById(`mission-${i}-arrow`);
+                        const otherToggle = document.getElementById(`mission-${i}-toggle`);
+                        
+                        otherModules.classList.remove('expanded');
+                        otherArrow.textContent = '▶';
+                        otherToggle.classList.remove('active');
+                    }
+                }
+
+                modules.classList.add('expanded');
+                arrow.textContent = '▼';
+                toggle.classList.add('active');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+            updateModuleStatus();
+            updateProgressDisplay();
+            updateJourneyMap();
+        });
+    </script>
+</body>
+</html>

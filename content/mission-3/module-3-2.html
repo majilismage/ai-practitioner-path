@@ -1,0 +1,329 @@
+<div class="content-header">
+    <div class="page-subtitle">Module 3.2</div>
+    <h1 class="page-title">Multi-Agent Workflows</h1>
+    <p class="module-briefing">Orchestrating multiple AI specialists for complex projects</p>
+</div>
+<div class="content-body">
+    <div class="card">
+        <h2 class="card-title">📋 Briefing</h2>
+        <div class="card-content">
+            <p>The next frontier of AI productivity isn't a single, super-intelligent assistant — it's teams of specialized AI agents working together on complex tasks, each optimized for specific roles and responsibilities.</p>
+            
+            <p>Think about how the best human teams work: you don't have one person do everything. You have specialists (researcher, analyst, writer, reviewer) who hand off work to each other, building on each other's strengths. AI teams can work the same way.</p>
+            
+            <p>Multi-agent workflows transform complex projects from overwhelming single-session struggles into orchestrated collaborations where each AI agent focuses on what it does best.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🎯 Core</h2>
+        <div class="card-content">
+            <h3>Multi-Agent Architecture:</h3>
+
+            <h4>Specialist Roles:</h4>
+            <ul>
+                <li><strong>Research Agent:</strong> Information gathering, source verification, trend analysis</li>
+                <li><strong>Analysis Agent:</strong> Data processing, pattern identification, insight generation</li>
+                <li><strong>Strategy Agent:</strong> High-level planning, decision frameworks, option evaluation</li>
+                <li><strong>Creation Agent:</strong> Content generation, design concepts, solution development</li>
+                <li><strong>Review Agent:</strong> Quality assurance, error checking, improvement suggestions</li>
+                <li><strong>Synthesis Agent:</strong> Integration of multiple inputs, final recommendations</li>
+            </ul>
+
+            <h4>Workflow Patterns:</h4>
+
+            <h5>Sequential Pipeline:</h5>
+            <p>Research → Analysis → Strategy → Creation → Review</p>
+            <ul>
+                <li>Each agent completes their task before passing to the next</li>
+                <li>Clear handoffs with specific deliverables</li>
+                <li>Good for linear, document-based projects</li>
+            </ul>
+
+            <h5>Parallel Processing:</h5>
+            <p>Research Agent + Market Analysis Agent + Technical Assessment Agent → Synthesis Agent</p>
+            <ul>
+                <li>Multiple agents work simultaneously on different aspects</li>
+                <li>Final integration of parallel outputs</li>
+                <li>Faster completion for complex analysis</li>
+            </ul>
+
+            <h5>Iterative Collaboration:</h5>
+            <p>Strategy Agent ↔ Analysis Agent ↔ Review Agent (multiple rounds)</p>
+            <ul>
+                <li>Agents refine each other's work through multiple cycles</li>
+                <li>Continuous improvement and error correction</li>
+                <li>Best for high-stakes or creative projects</li>
+            </ul>
+
+            <h3>Agent Specialization Techniques:</h3>
+
+            <h4>Role Definition:</h4>
+            <blockquote>
+                <p>"You are a Senior Market Research Analyst with 15 years of experience in B2B technology markets. Your expertise includes competitive intelligence, market sizing, trend identification, and customer behavior analysis. You approach research systematically, always validate sources, and present findings in clear, actionable formats."</p>
+            </blockquote>
+
+            <h4>Process Specialization:</h4>
+            <blockquote>
+                <p>"Your role in this workflow is to: 1) Gather comprehensive market data from multiple sources, 2) Verify information credibility and recency, 3) Identify key trends and patterns, 4) Summarize findings in a structured format for the strategy team, 5) Flag any data gaps or uncertainties."</p>
+            </blockquote>
+
+            <h4>Output Format Specification:</h4>
+            <blockquote>
+                <p>"Always structure your output as: Executive Summary (3 bullet points), Key Findings (numbered list with source citations), Market Trends (3-5 trends with supporting data), Uncertainties (what you couldn't verify), Recommendations for further research."</p>
+            </blockquote>
+
+            <h3>Handoff Protocols:</h3>
+
+            <h4>Standard Handoff Template:</h4>
+            <ul>
+                <li><strong>Completed Task:</strong> What was accomplished</li>
+                <li><strong>Key Outputs:</strong> Deliverables for the next agent</li>
+                <li><strong>Context Notes:</strong> Important background or constraints</li>
+                <li><strong>Open Questions:</strong> Issues for the next agent to address</li>
+                <li><strong>Quality Confidence:</strong> Assessment of output reliability</li>
+            </ul>
+
+            <h4>Escalation Triggers:</h4>
+            <ul>
+                <li>Conflicting information that requires human judgment</li>
+                <li>Missing critical data that affects downstream work</li>
+                <li>Scope changes that affect the workflow design</li>
+                <li>Quality issues that require workflow adjustment</li>
+            </ul>
+
+            <h3>Real-World Multi-Agent Examples:</h3>
+
+            <h4>Strategic Planning Workflow:</h4>
+            <ol>
+                <li><strong>Market Research Agent:</strong> Analyzes competitive landscape and market trends</li>
+                <li><strong>Internal Analysis Agent:</strong> Assesses company capabilities and constraints</li>
+                <li><strong>Financial Analysis Agent:</strong> Models different strategic options</li>
+                <li><strong>Risk Assessment Agent:</strong> Identifies potential threats and opportunities</li>
+                <li><strong>Strategy Synthesis Agent:</strong> Integrates all analysis into strategic recommendations</li>
+                <li><strong>Implementation Planning Agent:</strong> Develops concrete action plans</li>
+            </ol>
+
+            <h4>Content Development Workflow:</h4>
+            <ol>
+                <li><strong>Research Agent:</strong> Gathers background information and sources</li>
+                <li><strong>Audience Analysis Agent:</strong> Defines target audience and messaging strategy</li>
+                <li><strong>Content Creation Agent:</strong> Develops initial content based on research and strategy</li>
+                <li><strong>Editorial Agent:</strong> Reviews for clarity, tone, and effectiveness</li>
+                <li><strong>Technical Review Agent:</strong> Validates accuracy and completeness</li>
+                <li><strong>Optimization Agent:</strong> Refines for specific channels and objectives</li>
+            </ol>
+
+            <h4>Business Case Development:</h4>
+            <ol>
+                <li><strong>Problem Definition Agent:</strong> Clearly articulates the business challenge</li>
+                <li><strong>Solution Research Agent:</strong> Investigates alternative approaches</li>
+                <li><strong>Cost-Benefit Analysis Agent:</strong> Quantifies financial implications</li>
+                <li><strong>Risk Analysis Agent:</strong> Identifies and assesses potential risks</li>
+                <li><strong>Stakeholder Analysis Agent:</strong> Maps stakeholder concerns and buy-in requirements</li>
+                <li><strong>Presentation Agent:</strong> Packages everything into compelling business case</li>
+            </ol>
+
+            <h3>Quality Control in Multi-Agent Systems:</h3>
+
+            <h4>Cross-Validation:</h4>
+            <ul>
+                <li>Have multiple agents verify critical facts independently</li>
+                <li>Compare analysis from different perspectives</li>
+                <li>Flag inconsistencies for human review</li>
+            </ul>
+
+            <h4>Checkpoint Reviews:</h4>
+            <ul>
+                <li>Human review at key handoff points</li>
+                <li>Quality gates before proceeding to next stage</li>
+                <li>Feedback loops for continuous improvement</li>
+            </ul>
+
+            <h4>Version Control:</h4>
+            <ul>
+                <li>Track which agent contributed what</li>
+                <li>Maintain audit trail of changes and decisions</li>
+                <li>Enable rollback if quality issues emerge</li>
+            </ul>
+
+            <h3>Tools and Platforms:</h3>
+
+            <h4>Claude Projects for Agent Management:</h4>
+            <ul>
+                <li>Create separate projects for each specialized agent</li>
+                <li>Upload relevant knowledge bases and templates</li>
+                <li>Maintain conversation history and context</li>
+            </ul>
+
+            <h4>Document Management:</h4>
+            <ul>
+                <li>Shared workspace for handoffs</li>
+                <li>Standardized file naming and organization</li>
+                <li>Version control for iterative workflows</li>
+            </ul>
+
+            <h4>Workflow Orchestration:</h4>
+            <ul>
+                <li>Project management tools for tracking progress</li>
+                <li>Automated notifications for handoffs</li>
+                <li>Templates for consistent agent instructions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🛠️ Exercise</h2>
+        <div class="card-content">
+            <h3>Your Assignment:</h3>
+
+            <h4>Design a Multi-Agent Workflow:</h4>
+            <p>Choose a complex project that normally takes you 2-3 weeks to complete. This should be something that involves:</p>
+            <ul>
+                <li>Research and data gathering</li>
+                <li>Analysis and insight generation</li>
+                <li>Strategic thinking and planning</li>
+                <li>Content or solution creation</li>
+                <li>Review and refinement</li>
+            </ul>
+
+            <h4>Step 1: Workflow Design</h4>
+
+            <h5>Break Down the Project:</h5>
+            <ol>
+                <li><strong>List all major tasks</strong> in your typical approach</li>
+                <li><strong>Group related tasks</strong> that could be handled by a single specialist</li>
+                <li><strong>Identify dependencies</strong> — what must be completed before other tasks can start</li>
+                <li><strong>Define handoff points</strong> — where one specialist's work becomes input for another</li>
+            </ol>
+
+            <h5>Design Agent Roles:</h5>
+            <p>For each group of tasks, create a specialized agent with:</p>
+            <ul>
+                <li><strong>Role Definition:</strong> Professional background and expertise area</li>
+                <li><strong>Responsibilities:</strong> Specific tasks this agent will handle</li>
+                <li><strong>Inputs Required:</strong> What this agent needs to start work</li>
+                <li><strong>Output Format:</strong> How this agent should deliver results</li>
+                <li><strong>Quality Standards:</strong> Criteria for successful completion</li>
+            </ul>
+
+            <h4>Step 2: Create Agent Prompts</h4>
+            <p>For each agent in your workflow, develop detailed prompt templates:</p>
+
+            <h5>Agent Setup Prompt:</h5>
+            <blockquote>
+                <p>"You are a [specific role] with [relevant experience]. Your expertise includes [key skills]. In this workflow, you are responsible for [specific tasks]. 
+
+                Your working style is [methodology]. You always [quality standards]. Your outputs should be [format requirements].
+
+                Context for this project: [background information]
+                Success criteria: [how to measure good work]"</p>
+            </blockquote>
+
+            <h5>Task Execution Prompt:</h5>
+            <blockquote>
+                <p>"Based on the handoff from [previous agent]: [specific inputs]
+
+                Your task is to: [detailed requirements]
+
+                Please structure your output as: [format specification]
+
+                Before completing, verify that you have: [quality checklist]"</p>
+            </blockquote>
+
+            <h4>Step 3: Execute Sequential Workflow</h4>
+            <p>Run your multi-agent workflow from start to finish:</p>
+
+            <ol>
+                <li><strong>Agent 1:</strong> Execute first phase with detailed prompt</li>
+                <li><strong>Human Review:</strong> Check output quality and prepare handoff</li>
+                <li><strong>Agent 2:</strong> Execute second phase using Agent 1's output</li>
+                <li><strong>Continue...</strong> Until workflow completion</li>
+            </ol>
+
+            <h4>Step 4: Document and Optimize</h4>
+
+            <h5>Track Performance:</h5>
+            <ul>
+                <li>Time spent on each agent interaction</li>
+                <li>Quality of outputs (rate 1-5)</li>
+                <li>Handoff issues or missing information</li>
+                <li>Where human intervention was required</li>
+            </ul>
+
+            <h5>Compare to Single-Agent Approach:</h5>
+            <p>Complete the same project using one generalist AI agent and compare:</p>
+            <ul>
+                <li>Total time invested</li>
+                <li>Quality and depth of final output</li>
+                <li>Which approach felt more manageable</li>
+                <li>Where each approach had advantages</li>
+            </ul>
+
+            <h4>Step 5: Workflow Refinement</h4>
+            <p>Based on your experience, optimize the workflow:</p>
+
+            <ul>
+                <li><strong>Eliminate bottlenecks:</strong> Where did agents need more information or clearer instructions?</li>
+                <li><strong>Improve handoffs:</strong> What additional context would make transitions smoother?</li>
+                <li><strong>Enhance specialization:</strong> Where could agents be more focused or expert?</li>
+                <li><strong>Add quality gates:</strong> Where do you need human review checkpoints?</li>
+            </ul>
+
+            <h5>Create a Reusable Template:</h5>
+            <p>Document your optimized workflow as a template for similar projects in the future.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🤔 Debrief</h2>
+        <div class="card-content">
+            <h4>Workflow Effectiveness:</h4>
+            <ul>
+                <li>How did the multi-agent approach change the quality of your final output?</li>
+                <li>Which agents produced surprisingly good results? Which struggled?</li>
+                <li>Where did specialization clearly outperform generalist AI assistance?</li>
+                <li>What was the overall time investment compared to your normal approach?</li>
+            </ul>
+
+            <h4>Cognitive Benefits:</h4>
+            <ul>
+                <li>How did breaking the project into specialist roles affect your own thinking?</li>
+                <li>Where did the structured handoffs reveal gaps in your typical process?</li>
+                <li>Which aspects of the project felt more manageable with dedicated agents?</li>
+            </ul>
+
+            <h4>Practical Applications:</h4>
+            <ul>
+                <li>What types of projects in your work would benefit most from multi-agent workflows?</li>
+                <li>Where would the setup overhead be worth the quality improvement?</li>
+                <li>How could you share optimized workflows with your team?</li>
+            </ul>
+
+            <h4>Quality and Control:</h4>
+            <ul>
+                <li>Where did you need more human oversight than expected?</li>
+                <li>Which handoff points were most critical for maintaining quality?</li>
+                <li>How confident are you in the reliability of multi-agent outputs?</li>
+            </ul>
+
+            <h4>The Productivity Shift:</h4>
+            <p>Most professionals discover that multi-agent workflows change their role from "doing the work" to "orchestrating the work." You spend less time on execution and more time on design, review, and strategic direction.</p>
+
+            <h4>Scaling Considerations:</h4>
+            <ul>
+                <li>What would change if you had access to truly autonomous AI agents?</li>
+                <li>How do you balance efficiency gains with the need to stay connected to your work?</li>
+                <li>Which human skills become more valuable when AI handles specialized tasks?</li>
+                <li>How does multi-agent collaboration change team dynamics and responsibilities?</li>
+            </ul>
+
+            <h4>Future Evolution:</h4>
+            <ul>
+                <li>How might these workflows evolve as AI capabilities advance?</li>
+                <li>What would full automation of these agent handoffs enable?</li>
+                <li>Where will human judgment remain irreplaceable in complex project workflows?</li>
+            </ul>
+        </div>
+    </div>
+</div>

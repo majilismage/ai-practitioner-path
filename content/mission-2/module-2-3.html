@@ -1,0 +1,253 @@
+<div class="content-header">
+    <div class="page-subtitle">Module 2.3</div>
+    <h1 class="page-title">Risk Assessment and Compliance</h1>
+    <p class="module-briefing">How to use AI confidently while managing security, privacy, and regulatory requirements</p>
+</div>
+<div class="content-body">
+    <div class="card">
+        <h2 class="card-title">📋 Briefing</h2>
+        <div class="card-content">
+            <p>The biggest barrier to AI adoption in enterprise isn't technical — it's fear. Fear of data breaches, compliance violations, intellectual property leaks, and regulatory penalties. But these risks are manageable when you understand them.</p>
+            
+            <p>This isn't about avoiding AI to stay safe. It's about developing a systematic approach to AI risk assessment that allows you to confidently deploy AI where it adds value while maintaining security and compliance standards.</p>
+            
+            <p>The goal is to transform from "We can't use AI because it's risky" to "We know exactly when and how to use AI safely."</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🎯 Core</h2>
+        <div class="card-content">
+            <h3>The AI Risk Framework:</h3>
+
+            <h4>1. Data Classification:</h4>
+            <ul>
+                <li><strong>Public:</strong> Information already available publicly (website content, published reports)</li>
+                <li><strong>Internal:</strong> Information that could embarrass if leaked but won't cause material harm</li>
+                <li><strong>Confidential:</strong> Information that could damage competitive position or relationships</li>
+                <li><strong>Restricted:</strong> Information subject to legal/regulatory protection (PII, PHI, financial data)</li>
+            </ul>
+
+            <h4>2. Use Case Risk Assessment:</h4>
+            
+            <h5>Low Risk (Green Light):</h5>
+            <ul>
+                <li>Public data only</li>
+                <li>AI output is starting point, not final product</li>
+                <li>Human review before any external sharing</li>
+                <li>No automated decision-making affecting people</li>
+            </ul>
+
+            <h5>Medium Risk (Yellow Light):</h5>
+            <ul>
+                <li>Internal data with clear business justification</li>
+                <li>AI assists human decision-making but doesn't replace judgment</li>
+                <li>Strong oversight and review processes</li>
+                <li>Clear data retention and deletion policies</li>
+            </ul>
+
+            <h5>High Risk (Red Light):</h5>
+            <ul>
+                <li>Restricted data (PII, PHI, financial, legal)</li>
+                <li>Automated decisions affecting people or significant resources</li>
+                <li>External-facing outputs without human review</li>
+                <li>Regulatory compliance requirements</li>
+            </ul>
+
+            <h3>Industry-Specific Considerations:</h3>
+
+            <h4>Healthcare (HIPAA):</h4>
+            <ul>
+                <li><strong>Prohibited:</strong> Any patient data in external AI systems</li>
+                <li><strong>Permitted:</strong> De-identified data, published research, general medical knowledge questions</li>
+                <li><strong>Best Practice:</strong> Use AI for medical education and research design, not patient care</li>
+            </ul>
+
+            <h4>Financial Services (SOX, PCI, GDPR):</h4>
+            <ul>
+                <li><strong>Prohibited:</strong> Customer financial data, transaction records, risk assessments</li>
+                <li><strong>Permitted:</strong> Market research, general financial analysis, investment education</li>
+                <li><strong>Best Practice:</strong> Separate AI workflows for public vs. customer data</li>
+            </ul>
+
+            <h4>Legal (Attorney-Client Privilege):</h4>
+            <ul>
+                <li><strong>Prohibited:</strong> Client communications, case strategy, privileged documents</li>
+                <li><strong>Permitted:</strong> Legal research, public case law analysis, document templates</li>
+                <li><strong>Best Practice:</strong> AI for research and drafting, human review before client delivery</li>
+            </ul>
+
+            <h3>Security Best Practices:</h3>
+
+            <h4>Data Handling:</h4>
+            <ul>
+                <li><strong>Anonymization:</strong> Remove names, IDs, and identifying details before AI input</li>
+                <li><strong>Aggregation:</strong> Use summary statistics instead of individual records</li>
+                <li><strong>Synthesis:</strong> Combine information from multiple sources to obscure origins</li>
+                <li><strong>Temporal Separation:</strong> Use historical data rather than current/real-time information</li>
+            </ul>
+
+            <h4>Access Controls:</h4>
+            <ul>
+                <li><strong>Role-Based Permissions:</strong> Different AI access levels for different job functions</li>
+                <li><strong>Project-Specific Access:</strong> Limit AI usage to specific business purposes</li>
+                <li><strong>Audit Trails:</strong> Log all AI interactions for compliance review</li>
+                <li><strong>Time-Limited Access:</strong> Regular review and reauthorization</li>
+            </ul>
+
+            <h4>Output Validation:</h4>
+            <ul>
+                <li><strong>Fact-Checking:</strong> Verify AI-generated claims against authoritative sources</li>
+                <li><strong>Bias Detection:</strong> Review outputs for discriminatory or unfair patterns</li>
+                <li><strong>Professional Review:</strong> Subject matter expert approval before implementation</li>
+                <li><strong>Version Control:</strong> Track changes and maintain edit history</li>
+            </ul>
+
+            <h3>Compliance Documentation:</h3>
+
+            <h4>Required Records:</h4>
+            <ul>
+                <li><strong>Purpose Statement:</strong> Why AI was used for each task</li>
+                <li><strong>Data Source Documentation:</strong> What information was provided to AI</li>
+                <li><strong>Human Oversight Records:</strong> Who reviewed and approved AI outputs</li>
+                <li><strong>Decision Rationale:</strong> How AI output influenced final decisions</li>
+            </ul>
+
+            <h4>Incident Response Plan:</h4>
+            <ol>
+                <li><strong>Detection:</strong> How to identify potential AI-related security incidents</li>
+                <li><strong>Assessment:</strong> Criteria for determining incident severity</li>
+                <li><strong>Containment:</strong> Steps to prevent further exposure or damage</li>
+                <li><strong>Notification:</strong> Who to inform and when (legal, compliance, management)</li>
+                <li><strong>Recovery:</strong> How to restore normal operations</li>
+                <li><strong>Learning:</strong> Process improvement based on incidents</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🛠️ Exercise</h2>
+        <div class="card-content">
+            <h3>Your Assignment:</h3>
+
+            <h4>Step 1: Data Classification Audit</h4>
+            <p>For your current role, categorize the data you work with:</p>
+
+            <h5>Create Four Lists:</h5>
+            <ul>
+                <li><strong>Public Data:</strong> Information already public or safe to share externally</li>
+                <li><strong>Internal Data:</strong> Company information that's not confidential</li>
+                <li><strong>Confidential Data:</strong> Competitive or sensitive business information</li>
+                <li><strong>Restricted Data:</strong> Information subject to legal/regulatory protection</li>
+            </ul>
+
+            <h5>For Each Category:</h5>
+            <ul>
+                <li>List 3-5 specific examples</li>
+                <li>Note which AI use cases would be appropriate</li>
+                <li>Identify required safeguards or review processes</li>
+            </ul>
+
+            <h4>Step 2: Use Case Risk Assessment</h4>
+            <p>Take 5 specific AI applications you're considering and assess them:</p>
+
+            <h5>Risk Assessment Template:</h5>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <tr style="background: var(--bg-tertiary);">
+                    <th style="padding: 0.5rem; border: 1px solid var(--border);">Use Case</th>
+                    <th style="padding: 0.5rem; border: 1px solid var(--border);">Data Type</th>
+                    <th style="padding: 0.5rem; border: 1px solid var(--border);">Risk Level</th>
+                    <th style="padding: 0.5rem; border: 1px solid var(--border);">Safeguards Needed</th>
+                    <th style="padding: 0.5rem; border: 1px solid var(--border);">Approval Required</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border);">Example: Draft customer email</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border);">Internal</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border);">Low</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border);">Human review before sending</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border);">Manager approval</td>
+                </tr>
+            </table>
+
+            <h4>Step 3: Develop Safe AI Guidelines</h4>
+            <p>Create a one-page AI usage guide for your team:</p>
+
+            <h5>Include:</h5>
+            <ul>
+                <li><strong>Green Light Tasks:</strong> AI use cases that don't require approval</li>
+                <li><strong>Yellow Light Tasks:</strong> AI use cases that require manager review</li>
+                <li><strong>Red Light Tasks:</strong> AI use cases that are prohibited or require legal review</li>
+                <li><strong>Required Safeguards:</strong> Standard review and documentation requirements</li>
+                <li><strong>Escalation Process:</strong> Who to contact for questions or incidents</li>
+            </ul>
+
+            <h4>Step 4: Test Compliance Processes</h4>
+            <p>Pick one Yellow Light use case and implement full compliance documentation:</p>
+
+            <ol>
+                <li><strong>Purpose Documentation:</strong> Write a clear business justification</li>
+                <li><strong>Data Inventory:</strong> List exactly what data will be used</li>
+                <li><strong>Risk Mitigation Plan:</strong> Document safeguards and review processes</li>
+                <li><strong>Approval Workflow:</strong> Get appropriate sign-offs</li>
+                <li><strong>Implementation Log:</strong> Document the actual AI usage and outcomes</li>
+                <li><strong>Post-Implementation Review:</strong> Assess whether safeguards were effective</li>
+            </ol>
+
+            <h4>Step 5: Incident Response Drill</h4>
+            <p>Practice your incident response process with a hypothetical scenario:</p>
+
+            <h5>Scenario:</h5>
+            <p>You discover that an AI tool you used for customer analysis may have included personal data that shouldn't have been processed. Walk through each step of your incident response plan and document:</p>
+            <ul>
+                <li>Who would you notify and in what order?</li>
+                <li>What information would you need to gather?</li>
+                <li>What immediate actions would you take?</li>
+                <li>How would you prevent similar incidents?</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">🤔 Debrief</h2>
+        <div class="card-content">
+            <h4>Risk Understanding:</h4>
+            <ul>
+                <li>Which types of data and use cases turned out to be lower risk than you initially thought?</li>
+                <li>Where did you discover risks you hadn't previously considered?</li>
+                <li>How has your confidence in using AI safely changed after this systematic assessment?</li>
+            </ul>
+
+            <h4>Process Effectiveness:</h4>
+            <ul>
+                <li>Which safeguards feel most important vs. most burdensome?</li>
+                <li>Where could you streamline compliance processes without compromising security?</li>
+                <li>What would make it easier for your team to follow these guidelines consistently?</li>
+            </ul>
+
+            <h4>Business Impact:</h4>
+            <ul>
+                <li>How many AI use cases moved from "too risky" to "manageable with safeguards"?</li>
+                <li>What's the business value of the AI applications you can now pursue confidently?</li>
+                <li>Where are you still constrained by risk concerns, and are those constraints appropriate?</li>
+            </ul>
+
+            <h4>Organizational Readiness:</h4>
+            <ul>
+                <li>What would your organization need to change to support broader AI adoption?</li>
+                <li>Which stakeholders (legal, compliance, IT, management) need to be involved in AI governance?</li>
+                <li>How could you help your organization develop more sophisticated AI risk management?</li>
+            </ul>
+
+            <h4>The Meta-Insight:</h4>
+            <p>Most professionals discover that systematic risk assessment actually enables more AI usage, not less. When you understand the specific risks and have appropriate safeguards, you can confidently use AI for many business purposes that initially seemed "too risky."</p>
+
+            <h4>Advanced Questions:</h4>
+            <ul>
+                <li>How do you balance speed of innovation with thoroughness of risk management?</li>
+                <li>What role should AI play in risk assessment and compliance monitoring itself?</li>
+                <li>How do you stay current with evolving regulations and AI capabilities?</li>
+                <li>What's the right level of AI risk tolerance for your organization's competitive position?</li>
+            </ul>
+        </div>
+    </div>
+</div>

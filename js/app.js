@@ -19,8 +19,14 @@ class AIPath {
         // Load theme
         this.router.loadTheme();
         
-        // Populate navigation
+        // Populate navigation (includes theme toggle)
         this.populateNavigation();
+        
+        // Bind theme toggle (now in sidebar, after navigation is populated)
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => this.router.toggleTheme());
+        }
         
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
@@ -84,6 +90,14 @@ class AIPath {
                     ${this.generateMissionNavigation()}
                 </ul>
             </nav>
+
+            <!-- Theme Toggle -->
+            <div class="sidebar-theme-toggle">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                    <span id="theme-text">Dark Mode</span>
+                </button>
+            </div>
         `;
 
         sidebar.innerHTML = navigationHTML;

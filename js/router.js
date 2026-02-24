@@ -339,16 +339,21 @@ export class Router {
     toggleTheme() {
         const body = document.body;
         const themeText = document.getElementById('theme-text');
+        const themeIcon = document.getElementById('theme-icon');
         
         if (body.getAttribute('data-theme') === 'light') {
             body.removeAttribute('data-theme');
-            if (themeText) themeText.innerHTML = '🌙 Dark Mode';
+            if (themeText) themeText.textContent = 'Dark Mode';
+            if (themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
             localStorage.setItem('theme', 'dark');
         } else {
             body.setAttribute('data-theme', 'light');
-            if (themeText) themeText.innerHTML = '☀️ Light Mode';
+            if (themeText) themeText.textContent = 'Light Mode';
+            if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
             localStorage.setItem('theme', 'light');
         }
+        // Re-render Lucide icons after changing data-lucide attribute
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     loadTheme() {
@@ -356,7 +361,9 @@ export class Router {
         if (savedTheme === 'light') {
             document.body.setAttribute('data-theme', 'light');
             const themeText = document.getElementById('theme-text');
-            if (themeText) themeText.innerHTML = '☀️ Light Mode';
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeText) themeText.textContent = 'Light Mode';
+            if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
         }
     }
 

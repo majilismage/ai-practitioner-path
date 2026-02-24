@@ -1,7 +1,7 @@
 // app.js - Main application initialization
-import { ProgressTracker } from './progress.js?v=4';
-import { ContentLoader } from './content.js?v=4';
-import { Router } from './router.js?v=4';
+import { ProgressTracker } from './progress.js?v=5';
+import { ContentLoader } from './content.js?v=5';
+import { Router } from './router.js?v=5';
 
 class AIPath {
     constructor() {

@@ -384,7 +384,25 @@ export class Router {
         // Load autonomy spectrum diagram
         this.loadAutonomySpectrum();
         
-        // Journey map progress is updated by the main app's updateProgressUI()
+        // Bind CTA buttons (onclick attributes are stripped by sanitizeHTML)
+        const beginBtn = document.querySelector('.cta-button.primary');
+        if (beginBtn) {
+            beginBtn.addEventListener('click', () => this.navigateToModule(1, 1));
+        }
+        
+        const curriculumBtn = document.querySelector('.cta-button.secondary');
+        if (curriculumBtn) {
+            curriculumBtn.addEventListener('click', () => {
+                const journeyMap = document.getElementById('journey-map');
+                if (journeyMap) journeyMap.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+        
+        // Bind journey map mission tiles
+        document.querySelectorAll('.journey-mission').forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', () => this.navigateToMission(index + 1));
+        });
     }
 
     loadAutonomySpectrum() {

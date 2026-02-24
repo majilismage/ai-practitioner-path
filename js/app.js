@@ -22,10 +22,14 @@ class AIPath {
         // Populate navigation (includes theme toggle)
         this.populateNavigation();
         
-        // Bind theme toggle (now in sidebar, after navigation is populated)
+        // Bind sidebar elements (created by populateNavigation, after router's setupEventListeners)
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
             themeToggle.addEventListener('click', () => this.router.toggleTheme());
+        }
+        const sidebarClose = document.getElementById('sidebar-close');
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => this.router.closeMobileMenu());
         }
         
         // Initialize Lucide icons
@@ -70,6 +74,9 @@ class AIPath {
         if (!sidebar) return;
 
         const navigationHTML = `
+            <button class="sidebar-close" id="sidebar-close">
+                <i data-lucide="x"></i>
+            </button>
             <!-- Quick Navigation -->
             <nav class="nav-section">
                 <h3 class="nav-title">Navigation</h3>
